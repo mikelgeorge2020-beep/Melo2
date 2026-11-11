@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ميليسيا · Melicia - الحروف والأرقام والقصص الشاملة مع صور البطلة ومحرك الأصوات الكرتونية</title>
+<meta content="تطبيق ميليسيا التفاعلي الشامل للأطفال: أصوات كرتونية تشجيعية، بطاقات الحروف التفاعلية العربية والإنجليزية والأرقام، 32 قصة كتاب مقدس، ومؤثرات صوتية" name="description"/>
+<!-- PWA & Mobile Web Meta Tags -->
+<meta content="#FB8500" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="ميليسيا" name="apple-mobile-web-app-title"/>
+<link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT" rel="apple-touch-icon"/>
+<link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT" rel="icon" type="image/jpeg"/>
+<style>
+:root{
+  --bg:#F0F4F8;
+  --ink:#1E2638;
+  --card:#FFFFFF;
+  --sun:#FFB703;
+  --on-sun:#1E2638;
+  --primary:#FB8500;
+  --primary-light:#FFD166;
+  --secondary:#219EBC;
+  --accent:#023047;
+  --fun-purple:#8E24AA;
+  --shadow:rgba(30,38,56,0.12);
+  --c0:#CDE4F5;--c1:#FFE2BC;--c2:#D7F1D0;--c3:#FFCCD2;--c4:#E2D9F8;--c5:#CEF2EA;--c6:#FFF0B8;--c7:#FAD2E5;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121624;--ink:#F0F3FA;--card:#1D233A;--shadow:rgba(0,0,0,0.45);
+    --c0:#234563;--c1:#664924;--c2:#2D572B;--c3:#692B34;--c4:#43346B;--c5:#235C52;--c6:#6B5F24;--c7:#6B2E50;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121624;--ink:#F0F3FA;--card:#1D233A;--shadow:rgba(0,0,0,0.45);
+  --c0:#234563;--c1:#664924;--c2:#2D572B;--c3:#692B34;--c4:#43346B;--c5:#235C52;--c6:#6B5F24;--c7:#6B2E50;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Chalkboard SE","Comic Sans MS",Tahoma,sans-serif;
+  min-height:100vh;padding:12px 12px 90px;display:flex;flex-direction:column;align-items:center;
+}
+.app-container{width:100%;max-width:520px;margin:0 auto}
+
+/* Header & Top Bar */
+.top-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:var(--card);padding:10px 16px;border-radius:24px;
+  box-shadow:0 4px 14px var(--shadow);margin-bottom:12px;
+}
+.top-profile{display:flex;align-items:center;gap:10px}
+.avatar-img-wrap{
+  position:relative;width:50px;height:50px;border-radius:50%;
+  border:3px solid var(--sun);box-shadow:0 4px 10px rgba(251,133,0,0.3);
+  overflow:hidden;flex-shrink:0;background:#FFE2BC;cursor:pointer;
+}
+.avatar-img-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+}
+.title-wrap h1{margin:0;font-size:1.22rem;line-height:1.1;font-weight:900}
+.title-wrap small{font-size:.78rem;opacity:.8;display:block;font-weight:600}
+.stars-badge{
+  background:var(--sun);color:var(--on-sun);border-radius:99px;
+  padding:6px 14px;font-weight:900;font-size:1.05rem;display:flex;align-items:center;gap:4px;
+  box-shadow:0 3px 0 rgba(0,0,0,0.15);cursor:pointer;user-select:none;
+}
+
+/* PWA Install Notification Bar */
+.pwa-banner{
+  background:linear-gradient(135deg, #FF6B6B, #FB8500);
+  color:#fff;border-radius:20px;padding:10px 14px;margin-bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  box-shadow:0 4px 12px rgba(251,133,0,0.28);
+}
+.pwa-banner .txt{display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:800}
+.pwa-install-btn{
+  background:#fff;color:#D84315;border-radius:14px;padding:7px 12px;
+  font-weight:900;font-size:.82rem;box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  border:none;cursor:pointer;white-space:nowrap;
+}
+
+/* Common Card & Buttons */
+.card{
+  background:var(--card);border-radius:24px;padding:16px;margin-bottom:14px;
+  box-shadow:0 4px 14px var(--shadow);border:2px solid rgba(255,255,255,0.6);
+}
+button{font:inherit;color:var(--ink);cursor:pointer;border:0;outline:none}
+button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.btn{
+  border-radius:20px;padding:12px 18px;font-weight:800;font-size:1rem;
+  background:var(--card);box-shadow:0 4px 0 var(--shadow);transition:.2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--shadow)}
+.btn-primary{background:linear-gradient(135deg, #FB8500, #E06000);color:#FFF}
+.btn-sun{background:var(--sun);color:var(--on-sun)}
+.btn-secondary{background:linear-gradient(135deg, #219EBC, #023047);color:#FFF}
+.btn-fun{background:linear-gradient(135deg, #AB47BC, #7B1FA2);color:#FFF}
+
+/* Cartoon Audio & Cheer Toolbar */
+.cartoon-toolbar{
+  background:linear-gradient(135deg, #FFF0F5, #FFE4EF);
+  border-radius:22px;padding:12px;margin-bottom:14px;border:2px solid #F48FB1;
+  box-shadow:0 4px 12px rgba(233,30,99,0.12);
+}
+.cartoon-toolbar-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:8px;font-weight:900;font-size:.9rem;color:#AD1457;
+}
+.cartoon-fx-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px;
+}
+.cartoon-fx-btn{
+  background:#fff;border-radius:16px;padding:8px 4px;font-size:.78rem;font-weight:900;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  box-shadow:0 3px 0 rgba(173,20,87,0.15);border:2px solid #F8BBD0;color:#880E4F;
+  transition:.15s;
+}
+.cartoon-fx-btn:active{transform:scale(0.94);background:#FCE4EC}
+.cartoon-speech-btn{
+  width:100%;background:linear-gradient(135deg, #FF4081, #E91E63);
+  color:#fff;border-radius:18px;padding:10px 14px;font-weight:900;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 4px 0 #C2185B;border:none;cursor:pointer;animation:pulseBtn 2.2s infinite;
+}
+@keyframes pulseBtn{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.02)}
+}
+
+/* Audio FX Bar */
+.fx-container{
+  background:linear-gradient(135deg, #E2F3FD, #CDE9FC);
+  border-radius:22px;padding:12px;margin-bottom:14px;border:2px solid #90CAF9;
+}
+.fx-title{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;font-weight:800;font-size:.9rem;color:#0D47A1;
+}
+.fx-badge{
+  font-size:.72rem;background:#0D47A1;color:#fff;padding:3px 8px;border-radius:12px;
+}
+.fx-buttons{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.fx-btn{
+  background:#fff;border-radius:16px;padding:8px 4px;font-size:.78rem;font-weight:800;
+  display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:0 3px 0 rgba(0,0,0,0.1);
+  border:2px solid transparent;transition:all .2s;color:var(--ink);
+}
+.fx-btn.active{
+  border-color:#0D47A1;background:#E3F2FD;transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,0.1);
+}
+.fx-btn .ic{font-size:1.35rem}
+
+/* Hero Welcome Banner with Melicia Portrait */
+.hero-welcome{
+  background:linear-gradient(135deg, #FFF6E5, #FFE7CE);
+  border-radius:24px;padding:14px;margin-bottom:14px;display:flex;align-items:center;gap:14px;
+  border:2px dashed #FB8500;box-shadow:0 4px 14px var(--shadow);position:relative;
+}
+.hero-avatar-box{
+  position:relative;width:78px;height:78px;border-radius:50%;
+  border:4px solid #FFB703;box-shadow:0 4px 12px rgba(251,133,0,0.35);
+  flex-shrink:0;overflow:hidden;background:#fff;
+}
+.hero-avatar-box img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+}
+.hero-crown-badge{
+  position:absolute;top:-8px;right:-4px;font-size:1.3rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.hero-gold-badge{
+  position:absolute;bottom:-4px;right:2px;background:#FFB703;color:#8B4500;
+  border-radius:50%;width:22px;height:22px;display:grid;place-items:center;
+  font-size:.7rem;font-weight:900;border:2px solid #fff;box-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+.hero-welcome .txt{flex:1}
+.hero-welcome h2{margin:0 0 4px;font-size:1.18rem;font-weight:900;color:#9B4500}
+.hero-welcome p{margin:0 0 8px;font-size:.84rem;color:#703503;font-weight:700;line-height:1.4}
+.hero-welcome-actions{display:flex;gap:6px;flex-wrap:wrap}
+.hero-welcome .wave-btn{
+  background:#FB8500;color:#FFF;border-radius:16px;padding:8px 12px;
+  font-weight:900;font-size:.84rem;box-shadow:0 3px 0 #A83800;border:none;cursor:pointer;
+}
+
+/* Navigation Grid Cards */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.card-nav{
+  background:var(--card);border-radius:24px;padding:16px 12px;text-align:center;
+  box-shadow:0 6px 0 var(--shadow);border:3px solid rgba(255,255,255,0.85);transition:.2s;
+  cursor:pointer;position:relative;overflow:hidden;
+}
+.card-nav:active{transform:translateY(4px);box-shadow:0 2px 0 var(--shadow)}
+.card-nav .emoji-bubble{
+  width:60px;height:60px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;
+  font-size:2.2rem;background:rgba(255,255,255,0.7);box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+.card-nav b{display:block;font-size:1.12rem;font-weight:900;margin-bottom:3px}
+.card-nav span{display:block;font-size:.78rem;opacity:.8;font-weight:600}
+
+/* Story Viewer Styles */
+.story-box{
+  background:var(--card);border-radius:28px;padding:20px;text-align:center;
+  box-shadow:0 8px 24px var(--shadow);position:relative;
+}
+.story-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.story-badge{background:var(--primary-light);padding:4px 10px;border-radius:12px;font-size:.78rem;font-weight:800}
+.story-scene{
+  font-size:4.2rem;margin:12px 0;padding:16px;border-radius:22px;
+  background:linear-gradient(135deg, var(--c0), var(--c4));box-shadow:inset 0 2px 8px rgba(0,0,0,0.06);
+}
+.story-ar{font-size:1.25rem;font-weight:800;line-height:1.6;margin:10px 0 6px}
+.story-en{font-size:.95rem;color:#555;direction:ltr;font-weight:700;margin-bottom:14px}
+.story-dots{display:flex;justify-content:center;gap:6px;margin:12px 0}
+.story-dots span{width:10px;height:10px;border-radius:50%;background:#D0D4DC}
+.story-dots span.active{background:var(--primary);width:24px;border-radius:6px}
+
+/* Letter and Math Grids */
+.learn-tabs{
+  display:flex;background:var(--card);border-radius:18px;padding:4px;margin-bottom:12px;gap:6px;
+  box-shadow:0 3px 10px var(--shadow);
+}
+.learn-tab{
+  flex:1;padding:10px 6px;border-radius:14px;font-weight:900;font-size:.92rem;
+  background:none;border:none;color:#666;transition:.2s;
+}
+.learn-tab.active{
+  background:var(--primary);color:#fff;box-shadow:0 3px 8px rgba(251,133,0,0.3);
+}
+
+.letter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.letter-btn{
+  border-radius:20px;padding:14px 4px;font-size:1.75rem;font-weight:900;
+  box-shadow:0 5px 0 var(--shadow);border:3px solid #FFF;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;
+}
+.letter-btn small{font-size:.75rem;font-weight:800;opacity:.85}
+.letter-btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--shadow)}
+
+/* Interactive Learning Sheet / Big Card */
+.learn-sheet-badge{
+  font-size:5rem;font-weight:900;width:120px;height:120px;margin:0 auto 12px;
+  border-radius:32px;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,0.12);
+  border:4px solid #fff;
+}
+.sheet-examples-grid{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:10px;margin:14px 0;
+}
+.sheet-example-item{
+  background:#F8FAFC;border-radius:18px;padding:10px 4px;border:2px solid #E2E8F0;
+  cursor:pointer;transition:.2s;display:flex;flex-direction:column;align-items:center;
+}
+.sheet-example-item:active{transform:scale(0.95);background:#FFF3E0;border-color:var(--primary)}
+.sheet-example-item .ex-emoji{font-size:2.4rem;margin-bottom:4px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1))}
+.sheet-example-item .ex-word{font-weight:900;font-size:.92rem;color:var(--ink)}
+.sheet-example-item .ex-sub{font-size:.74rem;color:#64748B;font-weight:700}
+
+/* Interactive Number Counting */
+.number-counter-box{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;
+  background:#F8FAFC;border-radius:22px;border:2px dashed #90CAF9;margin:14px 0;
+}
+.count-item-btn{
+  width:50px;height:50px;border-radius:16px;background:#FFF;border:2px solid #E2E8F0;
+  display:grid;place-items:center;font-size:1.9rem;box-shadow:0 3px 6px rgba(0,0,0,0.06);
+  cursor:pointer;transition:transform .2s, background .2s;
+}
+.count-item-btn.counted{
+  background:#C8E6C9;border-color:#4CAF50;transform:scale(1.08);box-shadow:0 4px 10px rgba(76,175,80,0.3);
+}
+
+/* Quiz / Interaction */
+.quiz-card{text-align:center;padding:20px}
+.quiz-options{display:grid;gap:10px;margin-top:16px}
+.quiz-opt{
+  border-radius:20px;padding:15px;background:var(--card);box-shadow:0 4px 0 var(--shadow);
+  font-size:1.25rem;font-weight:900;border:2px solid transparent;
+}
+.quiz-opt.correct{background:#7CC576;color:#12341A;border-color:#4CAF50}
+.quiz-opt.wrong{animation:shake .35s;background:#FFCDD2;color:#B71C1C}
+
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-8px)}
+  75%{transform:translateX(8px)}
+}
+
+/* Photo Album Gallery */
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;margin-top:14px;
+}
+.photo-card{
+  background:var(--card);border-radius:22px;overflow:hidden;
+  box-shadow:0 5px 14px var(--shadow);border:3px solid #fff;
+  display:flex;flex-direction:column;transition:transform .2s;
+}
+.photo-card:active{transform:scale(0.98)}
+.photo-card .img-box{
+  width:100%;height:175px;overflow:hidden;position:relative;background:#f0f0f0;
+}
+.photo-card img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+}
+.photo-card .caption{
+  padding:10px 8px;text-align:center;font-weight:800;font-size:.82rem;color:var(--ink);
+  background:rgba(255,255,255,0.95);
+}
+.photo-card .tag{
+  position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.65);
+  color:#fff;border-radius:10px;padding:3px 7px;font-size:.7rem;font-weight:800;
+  backdrop-filter:blur(4px);
+}
+
+/* Modal Overlay */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(18,22,36,0.7);backdrop-filter:blur(4px);
+  display:none;place-items:center;padding:16px;z-index:999;
+}
+.modal-overlay.open{display:grid}
+.modal-content{
+  background:var(--card);border-radius:28px;padding:22px;max-width:440px;width:100%;
+  text-align:center;box-shadow:0 12px 36px rgba(0,0,0,0.25);max-height:92vh;overflow-y:auto;
+}
+
+/* Success Celebration Popup */
+.win-popup-img{
+  width:110px;height:110px;border-radius:50%;margin:0 auto 12px;
+  border:4px solid #FFB703;box-shadow:0 6px 16px rgba(251,133,0,0.4);
+  overflow:hidden;background:#fff;
+}
+.win-popup-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+
+/* Bottom Tab Bar */
+.bottom-tabs{
+  position:fixed;bottom:0;left:0;right:0;max-width:520px;margin:0 auto;
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);
+  border-top:2px solid rgba(0,0,0,0.06);display:flex;justify-content:space-around;
+  padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px));border-radius:26px 26px 0 0;
+  box-shadow:0 -4px 18px rgba(0,0,0,0.08);z-index:100;
+}
+.tab-btn{
+  background:none;border:0;display:flex;flex-direction:column;align-items:center;
+  gap:2px;font-size:.74rem;font-weight:800;color:#788296;padding:4px 8px;border-radius:14px;
+}
+.tab-btn .tab-ic{font-size:1.45rem}
+.tab-btn.active{color:var(--primary);background:rgba(251,133,0,0.1)}
+</style>
+</head>
+<body>
+<div class="app-container">
+<!-- PWA Install Banner -->
+<div class="pwa-banner" id="pwaBanner">
+<div class="txt">
+<span>📲</span>
+<span>ثبّتي تطبيق ميليسيا على الشاشة الرئيسية!</span>
+</div>
+<button class="pwa-install-btn" id="pwaInstallBtn" onclick="installAppPWA()">تثبيت الآن ⭐</button>
+</div>
+<!-- Top App Bar with Melicia's Real Photo Avatar -->
+<header class="top-bar">
+<div class="top-profile">
+<div class="avatar-img-wrap" id="avBtn" onclick="navigate('album')" title="عرض ألبوم ميليسيا">
+<img alt="ميليسيا بطلة التطبيق" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT"/>
+</div>
+<div class="title-wrap">
+<h1 id="appHeroName">ميليسيا · Melicia</h1>
+<small id="appSubtitle">البطلة الذهبية للألعاب والقصص 🌟</small>
+</div>
+</div>
+<div class="stars-badge" id="starBadge" onclick="triggerMeliciaCheer()" title="نجوم التحدي اليومي">
+      ⭐ <span id="starCount">25</span>
+</div>
+</header>
+<!-- CARTOON CHEERFUL SOUND & VOICE ENGINE BAR -->
+<section class="cartoon-toolbar">
+<div class="cartoon-toolbar-header">
+<span>🧸 مؤثرات وأصوات كرتونية فائقة المرح</span>
+<span style="font-size:.75rem;background:#E91E63;color:#fff;padding:2px 8px;border-radius:10px">Cartoon FX ✨</span>
+</div>
+<div class="cartoon-fx-grid">
+<button class="cartoon-fx-btn" onclick="playCartoonSound('boing')">
+<span style="font-size:1.3rem">🦘</span>
+<span>قفزة Boing</span>
+</button>
+<button class="cartoon-fx-btn" onclick="playCartoonSound('sparkle')">
+<span style="font-size:1.3rem">✨</span>
+<span>بهجة وسحر</span>
+</button>
+<button class="cartoon-fx-btn" onclick="playCartoonSound('tada')">
+<span style="font-size:1.3rem">🎺</span>
+<span>فوز Ta-Da</span>
+</button>
+<button class="cartoon-fx-btn" onclick="playCartoonSound('pop')">
+<span style="font-size:1.3rem">🫧</span>
+<span>فرقعة Pop</span>
+</button>
+</div>
+<button class="cartoon-speech-btn" onclick="speakRandomCheer()">
+<span>📢</span>
+<span>تشجيع كرتوني لميليسيا (صوت مرح) 💖</span>
+</button>
+</section>
+<!-- Ambient Natural Sound Engine Toolbar -->
+<section class="fx-container">
+<div class="fx-title">
+<span>🌿 مؤثرات الطبيعة الحية (Web Audio FX)</span>
+<span class="fx-badge" id="fxStatus">مستعد للتشغيل</span>
+</div>
+<div class="fx-buttons">
+<button class="fx-btn" id="fxRain" onclick="playAmbient('rain')">
+<span class="ic">🌧️</span>
+<span>مطر</span>
+</button>
+<button class="fx-btn" id="fxSea" onclick="playAmbient('sea')">
+<span class="ic">🌊</span>
+<span>بحر</span>
+</button>
+<button class="fx-btn" id="fxBirds" onclick="playAmbient('birds')">
+<span class="ic">🕊️</span>
+<span>طيور</span>
+</button>
+<button class="fx-btn" id="fxWind" onclick="playAmbient('wind')">
+<span class="ic">🍃</span>
+<span>رياح</span>
+</button>
+<button class="fx-btn" id="fxStop" onclick="stopAmbient()" style="background:#FFF0F0;color:#D32F2F">
+<span class="ic">⏹️</span>
+<span>إيقاف</span>
+</button>
+</div>
+</section>
+<!-- Dynamic Main Content App Area -->
+<main id="appMain"></main>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="bottom-tabs">
+<button class="tab-btn active" id="tabHome" onclick="navigate('home')">
+<span class="tab-ic">🏠</span>
+<span>الرئيسية</span>
+</button>
+<button class="tab-btn" id="tabStories" onclick="navigate('stories')">
+<span class="tab-ic">📖</span>
+<span>القصص (32)</span>
+</button>
+<button class="tab-btn" id="tabMatch" onclick="navigate('match')">
+<span class="tab-ic">🧩</span>
+<span>توصيل</span>
+</button>
+<button class="tab-btn" id="tabLearn" onclick="navigate('learn')">
+<span class="tab-ic">🔤</span>
+<span>الحروف والأرقام</span>
+</button>
+<button class="tab-btn" id="tabAlbum" onclick="navigate('album')">
+<span class="tab-ic">📸</span>
+<span>ألبوم ميليسيا</span>
+</button>
+</nav>
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal-content" id="modalContent"></div>
+</div>
+<script>
+/* =========================================================================
+   PWA & Service Worker Inline Setup (Offline Manifest + Cache)
+   ========================================================================= */
+let deferredPrompt = null;
+
+(function setupManifest() {
+  const manifestData = {
+    name: "ميليسيا - Melicia",
+    short_name: "ميليسيا",
+    description: "تطبيق ميليسيا التفاعلي الشامل للأطفال: أصوات كرتونية تشجيعية، 32 قصة كتاب مقدس، حروف وأرقام تفاعلية",
+    start_url: window.location.href,
+    display: "standalone",
+    background_color: "#EAF6FD",
+    theme_color: "#FB8500",
+    orientation: "portrait",
+    icons: [
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT",
+        sizes: "192x192 512x512",
+        type: "image/jpeg"
+      }
+    ]
+  };
+
+  const stringManifest = JSON.stringify(manifestData);
+  const blob = new Blob([stringManifest], {type: 'application/json'});
+  const manifestURL = URL.createObjectURL(blob);
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = manifestURL;
+  document.head.appendChild(link);
+})();
+
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE_NAME = 'melicia-app-v4';
+    self.addEventListener('install', (e) => {
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', (e) => {
+      e.waitUntil(clients.claim());
+    });
+    self.addEventListener('fetch', (e) => {
+      e.respondWith(
+        fetch(e.request).catch(() => caches.match(e.request))
+      );
+    });
+  `;
+  const blob = new Blob([swCode], {type: 'text/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob))
+    .then(() => console.log('Service Worker Active for Melicia'))
+    .catch(err => console.log('SW Registration skipped:', err));
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = document.getElementById('pwaBanner');
+  if (banner) banner.style.display = 'flex';
+});
+
+function installAppPWA() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        const banner = document.getElementById('pwaBanner');
+        if (banner) banner.style.display = 'none';
+      }
+      deferredPrompt = null;
+    });
+  } else {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS) {
+      alert("📱 لتثبيت التطبيق على الآيفون أو الآيباد:\n1. اضغطي على زر المشاركة (Share) أسفل الشاشة 📤\n2. اختاري 'إضافة إلى الشاشة الرئيسية' (Add to Home Screen) ➕\nوسيصبح تطبيقاً مستقلاً مع صورة ميليسيا ومحرك الأصوات الكرتونية!");
+    } else {
+      alert("⭐ لتثبيت التطبيق:\nاضغطي على خيارات المتصفح (⋮) ثم اختاري 'تثبيت التطبيق' أو 'إضافة إلى الشاشة الرئيسية' (Install App).");
+    }
+  }
+}
+
+/* =========================================================================
+   1. Data Store: 32 Bible Stories
+   ========================================================================= */
+const STORIES = [
+  {id:1, emoji:"🍎", title:"آدم وحواء", en:"Adam & Eve", fx:"birds",
+   scenes:[
+     {e:"🌍☀️🌳", ar:"في الأول ربنا خلق الدنيا: الشمس والشجر والحيوانات الجميلة.", en:"In the beginning God made the world: sun, trees and gentle animals."},
+     {e:"👨🌳👩", ar:"ربنا خلق آدم وحواء في جنة عدن الحلوة، وكانوا بيحبوا ربنا جداً.", en:"God created Adam and Eve in a lovely garden, and they loved God."},
+     {e:"🍎🕊️🤍", ar:"ربنا علّمهم يسمعوا الكلام، وفضل يحبهم ويحميهم دائماً.", en:"God taught them goodness and kept loving and protecting them."}
+   ]},
+  {id:2, emoji:"🚢", title:"نوح وسفينة النجاة", en:"Noah's Ark", fx:"rain",
+   scenes:[
+     {e:"🙏🏠👨", ar:"نوح كان بيحب ربنا ويسمع كلامه من كل قلبه.", en:"Noah loved God and always listened with all his heart."},
+     {e:"🔨🚢🐘", ar:"ربنا قال لنوح: ابني سفينة كبيرة واحمي الحيوانات من المطر.", en:"God said to Noah: build a great ark and welcome all animals inside."},
+     {e:"🌧️🌈🕊️", ar:"نزل المطر وربنا حفظ نوح، وبعدها طلعت الشمس وظهر قوس قزح الجميل!", en:"The rain stopped, and God brought a shining rainbow in the sky!"}
+   ]},
+  {id:3, emoji:"🗼", title:"برج بابل", en:"Tower of Babel", fx:"wind",
+   scenes:[
+     {e:"🧱🗼🏃", ar:"الناس بدأوا يبنوا برج عالي قوي، وربنا بيحب الإنسان المتواضع الطيب.", en:"People built a high tower, but God loves gentle and humble hearts."}
+   ]},
+  {id:4, emoji:"⭐", title:"إبراهيم ووعد النجوم", en:"Abraham & Stars", fx:"wind",
+   scenes:[
+     {e:"🌙⭐🏕️", ar:"ربنا وعد إبراهيم إن نسله هيكون كتير زي نجوم السما اللامعة.", en:"God promised Abraham that his family would shine like the stars above."}
+   ]},
+  {id:5, emoji:"🪜", title:"يعقوب والسلم السماوي", en:"Jacob's Ladder", fx:"wind",
+   scenes:[
+     {e:"🪜✨😴", ar:"يعقوب شاف في حلمه سلم واصل للسما والملائكة طالعة ونازلة وربنا قال: أنا معاك.", en:"Jacob dreamed of a ladder to heaven, and God said: I am with you always."}
+   ]},
+  {id:6, emoji:"🧥", title:"يوسف ورداء الألوان", en:"Joseph's Coat", fx:"birds",
+   scenes:[
+     {e:"🧥❤️👴", ar:"يوسف لبس جلابية ألوانها مبهجة، وربنا كان معاه ونجّاه وصار قائداً عظيماً.", en:"Joseph wore a coat of many colors, and God walked with him through all things."}
+   ]},
+  {id:7, emoji:"🧺", title:"موسى الرضيع في السلة", en:"Baby Moses", fx:"sea",
+   scenes:[
+     {e:"🧺🌊👶", ar:"أم موسى وضعته في سلة صغيرة على النهر، وربنا حافظ عليه بحنان كبير.", en:"Baby Moses floated safely in a basket on the river under God's watchful eye."}
+   ]},
+  {id:8, emoji:"🌿", title:"العليقة المشتعلة", en:"The Burning Bush", fx:"wind",
+   scenes:[
+     {e:"🌿🔥👣", ar:"موسى شاف شجرة بتولع نار ومش بتتحرق، وربنا ناداه برقة وقال: اخلع نعليك.", en:"Moses saw a bush aflame without burning, hearing God's gentle call."}
+   ]},
+  {id:9, emoji:"🌊", title:"موسى وشق البحر الأحمر", en:"Parting of the Sea", fx:"sea",
+   scenes:[
+     {e:"🌊👣🚶", ar:"موسى مد عصاه فانشق البحر لطريق ناشف وعدّى الشعب بسلام وفرح!", en:"Moses raised his staff, the sea opened wide, and the people walked through safely!"}
+   ]},
+  {id:10, emoji:"📜", title:"الوصايا العشر", en:"Ten Commandments", fx:"wind",
+   scenes:[
+     {e:"⛰️📜✨", ar:"ربنا أعطى موسى الوصايا عشان نعيش بالمحبة والخير مع كل الناس.", en:"God gave Moses loving commandments to guide our hearts in peace and love."}
+   ]},
+  {id:11, emoji:"🎺", title:"أسوار أريحا ويشوع", en:"Walls of Jericho", fx:"wind",
+   scenes:[
+     {e:"🎺🏰🎉", ar:"يشوع والشعب هتفوا ونفخوا في الأبواق، فانتصروا بالإيمان وسقطت الأسوار.", en:"Joshua and the people sounded the trumpets with faith and praise!"}
+   ]},
+  {id:12, emoji:"💪", title:"شمشون القوي", en:"Samson the Strong", fx:"wind",
+   scenes:[
+     {e:"💪🦁☀️", ar:"شمشون كان قوياً جداً وكانت قوته هدية جميلة من ربنا ليحمي أهله.", en:"Samson had great strength given by God to protect and serve his people."}
+   ]},
+  {id:13, emoji:"🌾", title:"راعوث المخلصة", en:"Ruth's Kindness", fx:"birds",
+   scenes:[
+     {e:"🌾🤝👵", ar:"راعوث وقفت جنب حماتها بحب ووفاء، فربنا باركها وملأ حياتها خير ونعمة.", en:"Ruth showed sweet devotion to Naomi, and God filled her days with joy."}
+   ]},
+  {id:14, emoji:"👂", title:"صموئيل الصغير", en:"Little Samuel", fx:"wind",
+   scenes:[
+     {e:"👂🌙🙏", ar:"صموئيل سمع صوت ربنا بيناديه في الهيكل وقال بكل أدب: تكلم يا رب فإن عبدك سامع.", en:"Little Samuel heard God's tender whisper and said: Speak Lord, I am listening."}
+   ]},
+  {id:15, emoji:"🐑", title:"داود الراعي وجالوت", en:"David & Goliath", fx:"birds",
+   scenes:[
+     {e:"🐑🎶🪨", ar:"داود الراعي الصغير لم يخف من العملاق، وثق بربنا وانتصر بحجر صغير ومقلاع.", en:"Brave little shepherd David trusted the Lord and triumphed with a humble sling."}
+   ]},
+  {id:16, emoji:"🏛️", title:"سليمان الحكيم", en:"King Solomon", fx:"wind",
+   scenes:[
+     {e:"👑🏛️💡", ar:"سليمان طلب من ربنا الحكمة والفهم، فربنا أعطاه قلباً حكيماً جداً.", en:"King Solomon asked God for wisdom to lead with kindness and justice."}
+   ]},
+  {id:17, emoji:"🐦‍⬛", title:"إيليا والغربان", en:"Elijah & Ravens", fx:"birds",
+   scenes:[
+     {e:"🐦‍⬛🍞🏞️", ar:"ربنا أرسل الغربان لإيليا عند النهر كل يوم حاملة له الخبز والأكل.", en:"God sent friendly birds each morning and evening to bring bread to Elijah."}
+   ]},
+  {id:18, emoji:"🦁", title:"دانيال في جب الأسود", en:"Daniel & Lions", fx:"wind",
+   scenes:[
+     {e:"🙏🦁🌙", ar:"دانيال كان بيصلي بأمانة، وربنا أرسل ملاكه وقفل أفواه الأسود ولم تؤذه أبداً!", en:"Daniel prayed faithfully; God sent His angel to watch over him among the lions."}
+   ]},
+  {id:19, emoji:"🐋", title:"يونان والحوت الكبير", en:"Jonah & Great Fish", fx:"sea",
+   scenes:[
+     {e:"⛈️🚢🌊", ar:"يونان ركب السفينة وجاءت عاصفة، ونزل في أعماق البحر.", en:"Jonah set sail, a storm arose, and he plunged into the rolling blue waters."},
+     {e:"🐋🙏🌙", ar:"حوت كبير استقبله بحنان، ويونان صلى لربنا من قلبه ثلاث ليالٍ.", en:"A giant fish kept Jonah safe, as he prayed with trust inside for three days."},
+     {e:"🏖️🏙️☀️", ar:"الحوت وصل يونان للشاطئ بسلام، وراح علّم الناس محبة ربنا وغفرانه.", en:"The friendly fish brought Jonah safely to shore to share God's wonderful love."}
+   ]},
+  {id:20, emoji:"👑", title:"الملكة إستير الشجاعة", en:"Queen Esther", fx:"wind",
+   scenes:[
+     {e:"👑✨🛡️", ar:"الملكة إستير كانت شجاعة ومحبة وطلبت معونة ربنا وأنقذت شعبها كله.", en:"Queen Esther stood bravely for her people with prayer and a glowing heart."}
+   ]},
+  {id:21, emoji:"🎁", title:"المجوس ونجمة المشرق", en:"The Wise Men", fx:"wind",
+   scenes:[
+     {e:"⭐🐪🎁", ar:"حكماء المشرق تبعوا نجمة متلألئة في السماء حتى وصلوا ليسوع وقدموا هداياهم.", en:"Wise men followed a radiant star leading straight to baby Jesus with golden gifts."}
+   ]},
+  {id:22, emoji:"⛪", title:"يسوع الصبي في الهيكل", en:"Jesus in the Temple", fx:"wind",
+   scenes:[
+     {e:"⛪📜👦", ar:"يسوع وهو صغير جلس في بيت ربنا يسمع المعلمين ويسألهم بفهم فائق.", en:"Young Jesus sat in the temple listening and asking questions full of wisdom."}
+   ]},
+  {id:23, emoji:"💧", title:"يوحنا المعمدان ونهر الأردن", en:"John the Baptist", fx:"sea",
+   scenes:[
+     {e:"💧🕊️🏞️", ar:"يوحنا عمّد الناس في مياه نهر الأردن وقال: جهزوا قلوبكم بالمحبة والفرح.", en:"John baptized joyful hearts in the Jordan river, preparing the way for light."}
+   ]},
+  {id:24, emoji:"💙", title:"العدرا مريم البتول", en:"Mother Mary", fx:"birds",
+   scenes:[
+     {e:"👸👼🌟", ar:"الملاك بشر مريم قائلاً: سلام لك يا ممتلئة نعمة، الرب معك ومبارك فيك.", en:"An angel brought joyous greetings to Mary with peace and celestial light."}
+   ]},
+  {id:25, emoji:"👶", title:"ميلاد يسوع في بيت لحم", en:"Birth of Jesus", fx:"birds",
+   scenes:[
+     {e:"👶🐴⭐", ar:"يسوع اتولد في مذود بيت لحم الهادئ، والملائكة رنمت في السماء بفرح عظيم!", en:"Jesus was born in Bethlehem; angels sang heavenly songs of peace on earth."}
+   ]},
+  {id:26, emoji:"🎣", title:"صيد السمك العجيب", en:"Miraculous Catch", fx:"sea",
+   scenes:[
+     {e:"⛵🐟🌊", ar:"يسوع قال لبطرس: ارمِ الشبكة في العمق، فامتلأت السفينة سمكاً كثيراً حتى كادت تغرق من البركة!", en:"Jesus said: let down your nets! And fish filled the boats in abundance."}
+   ]},
+  {id:27, emoji:"⛵", title:"يسوع يهدئ العاصفة", en:"Calming the Storm", fx:"sea",
+   scenes:[
+     {e:"⛈️⛵💨", ar:"هاجت الرياح وخاف التلاميذ، لكن يسوع قام وقال للريح والبحر: اسكت! فهدأ كل شيء فوراً.", en:"Waves splashed high, but Jesus said 'Peace, be still!' and calm fell instantly."}
+   ]},
+  {id:28, emoji:"🛏️", title:"شفاء المقعد من السقف", en:"Healing from Roof", fx:"wind",
+   scenes:[
+     {e:"🛏️🏠🤗", ar:"أربعة أصدقاء نزلوا صاحبهم المريض من السقف ليسوع، ويسوع فرح بإيمانهم وشفاه تماماً.", en:"Four loving friends lowered their sick companion, and Jesus restored him completely."}
+   ]},
+  {id:29, emoji:"🚶", title:"يسوع يمشي على الماء", en:"Walking on Water", fx:"sea",
+   scenes:[
+     {e:"🌊👣🤝", ar:"يسوع مشي فوق مياه البحر بسلام، ومد إيده لبطرس ومسكه بحب وقال له: لا تخف.", en:"Jesus walked upon the waves and took Peter's hand gently, saying: do not fear."}
+   ]},
+  {id:30, emoji:"🌳", title:"زكا فوق الشجرة", en:"Zacchaeus in Tree", fx:"birds",
+   scenes:[
+     {e:"🌳👀🏠", ar:"زكا كان قصيراً فتسلق الجميزة ليشاهد يسوع، فناداه يسوع بمحبة وقال: سأنزل في بيتك اليوم.", en:"Short Zacchaeus climbed a sycamore tree, and Jesus visited his home with joy."}
+   ]},
+  {id:31, emoji:"🌅", title:"قيامة يسوع المجيدة", en:"The Resurrection", fx:"birds",
+   scenes:[
+     {e:"🌅🪨👼", ar:"المسيح قام من بين الأموات وغلب الموت بالمحبة، ونشر السلام والفرح في قلوبنا!", en:"Christ is risen! Light conquered all shadows, filling every heart with endless hope."}
+   ]},
+  {id:32, emoji:"🌈", title:"سفر الرؤيا والسماء الجديدة", en:"New Creation", fx:"birds",
+   scenes:[
+     {e:"🌈✨🕊️", ar:"ربنا يعدنا بسماء جديدة وأرض جديدة يمسح فيها كل دمعة ويملأنا فرحاً ونوراً دائماً.", en:"God wipes away every tear, making all things beautifully new and full of peace."}
+   ]}
+];
+
+/* =========================================================================
+   Real Photo Album Data for Melicia
+   ========================================================================= */
+const MELICIA_GALLERY = [
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT", title:"الميدالية الذهبية والابتسامة الحلوة 🥇", tag:"البطلة الفائزة"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCY157PSs5a_bevS9_5BuqaldVc0x19yZlr__vpAMCyOcVzRFj1dkW4qLTKAR9fzE73RNL5bYXU0a5lbIDfbCVIUVeRr9c_Usu_s9LyS7DJnhkZMkqA0AIvZ28PVFsFbU5wUq9NevuJXlSLcR4wExalAL6pWeug-boWgKuWVv-eddRGJJ-BGewSnO-8rgvmUXJ8gZfARV81RiY-BpaAO7r0FbvPZ6YqStiMXg2CvapSX4mfURICSd8W", title:"شهادة التقدير والبالونات الزرقاء 📜", tag:"يوم التكريم"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCdAkotc438UrwNGmHFuBjTdKyvcgXhPj9rEOjkc5vwG9Rm7NUVCGc1-45FXN7vZcRqD-5lYZB47R8_pmd2HYoYBffD214Mj0tBRukwrEhv9wbEy9FWkdPNo0wdmJBovJNXj_uwrgictLmJw7lMhHFJE2VxnByTsz4lRF7vKOSfbcLgwGX6gMmfXRNt1QX6GeQB6wnspIim0A5xFtFBT4A1E8yXS0w9Cp8wyeTfGaVPMrCChr_Uv5T_", title:"ميليسيا تحتفل بالنجاح والتفوق 🎈", tag:"أفضل إنجاز"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuBzuvLGnl4bMy4k98LEMDagFxdAw6BtQ3H7Uh85M_I6W9DOqRJg_FHAdR2fLUyo3VJnY2cZ3RVAj49fOeUezGpt1jaPgr9sXp4zQqNgbybeOaYoOw-WZvKcFCAkt0NyCMjIDaQiz6OjlLq5RagRruWQfdxFBsLGgqDPYoZAS1m5PEZBqqANBrlEYLf29r2QgvFJ1G0NflGm7tZuOjm3MMH1Xu0_1VWGIXFIFE5h6WTmdkKsYYEEhgH6", title:"رحلة اليخت والبحر الأزرق الجميل ⛵", tag:"نزهة البحر"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuBidZDG0E3Lszs7huCqU5gt3ce9_ug8OMo3LJrxgACPz6I-besSe5RPHA8iV4ezeMkFwaXw_Y9MCWOSXpzCpkBKND7BwSfsyOyhNXQcXZUWt3_OXiypqMYuCo4F0NOFkVZyd6-hLBI3-AWEZPxUzFaUqumxS2G4cHavuzuefkw86VtFDYIlHFcx4zSYPSRGS_CXUckzR5mdVkglj-c2lvAPKE8oIHVYypQGtFOuUlw1WxoC11TbcRFl", title:"تاج الملاك والوشاح الملكي 👑", tag:"أميرة الملائكة"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCH3c7LSnRkC6G08hhMu0DwB2ncwMdKAIG289-RZGCjwAN0ul1nOd1WZ_SM7eg-qi6Y_XvvR6xbx-EMyxkfxzem0oAReWJRuu4xlJKbVA8ADqXZPoGK0GfDkTcnVwJFwRVu3nZzm4J3bwhh8oI7vsPE1jUxyyWdcu6xCh9ANB8jRq_oqtxsFErWmlRFDY9qfnNWx6Oe-xa6iWkQfTlJF0ji5wNmwFhA_U2h4ex2UadIuavSVJPx1EoS", title:"تحية الشجاعة والوطنية 6 أكتوبر 🫡", tag:"بطلة شجاعة"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuBU_Ywc7L_pDtS2pPEUeBPOQdwqqjXvsBS6yrXekZV_kuxY08PQO4R8brspnQkAsbx7icJKJF_sF5w88y__q5en8V8RVt6ARokvmkM1Kk7okyUZU0zeFRnKVNB0HTtMnZbaBtqsdAnDjH8257JKLKQH4XFNH2dy7KqALqhXMTntJeVr0u5lh1hnoT6ItyIsLOUfM0chCnmIZOaGF2342ZD5A9IFR7yrcCmNMpeQEhkIE_REZJ4J5xdb", title:"أنشطة المطبخ والترتيب الذكي 🍳", tag:"الشيف الصغيرة"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCszZBpBH5gXIo2HobT1iA1VnB6zSHQKCjkoJkK2L907aTW9SLdFBwIlu8s-FlVWkTm3LO_eDl3M_Gi9YOKq7j4DrRO2lwGdmiKo-5LEaD0CgNQkudiywHr-7OtvV60xT88WtRcIGoGsfrTVGxMFjHqPOrl8uOM7uFS-Tx70YT6B_eEs-f-AhPZi85GqLQ_y4H_UZSpkfcCSJrPUjkQyh6Zh28sRJ_6esKzLHk1I-J-pECx3io54HQa", title:"ميليسيا الشاطرة في الفصل المدرسي 🏫", tag:"تركيز وتفوق"},
+  {img:"https://lh3.googleusercontent.com/aida-public/AB6AXuDUBuXN3YsTOJjII2q6YkQi2j1jNsbYr2K2po0Ls5acX4j4I8Wx7UkJsqbWtbG8vXxxiRe5SI9mOf_jyH6Rxstnb0ODBFYbWWMnUeTy0JiqRHgmcuaPup37i8sA1L3ncexrSdYCMfMChNS4m6vSoWZrbzX38J8osiqHBBtMoBie3vm5PVAUWwYs7aVVhzkeVfItWNuTm-dnWU1r1vUznYpUtn8h80Cc0xXH9uXEXvktTED3KXYF0CsJ", title:"جدارية المحبة والقلوب الحمراء ❤️", tag:"كلنا بنحبك"}
+];
+
+/* =========================================================================
+   2. Web Audio API Ambient Natural Sound & Cartoon FX Generator
+   ========================================================================= */
+let audioCtx = null;
+let currentAmbientNodes = [];
+let activeFxName = null;
+
+function getAudioContext() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
+/* CARTOON LIVE AUDIO EFFECTS GENERATOR (Zero Offline Assets) */
+function playCartoonSound(type) {
+  const ctx = getAudioContext();
+  const now = ctx.currentTime;
+
+  if (type === 'boing') {
+    // Cartoon Boing Jump: pitch envelope climbing up and down with spring wobble
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(160, now);
+    osc.frequency.exponentialRampToValueAtTime(620, now + 0.18);
+    osc.frequency.exponentialRampToValueAtTime(320, now + 0.35);
+    osc.frequency.exponentialRampToValueAtTime(540, now + 0.48);
+
+    gain.gain.setValueAtTime(0.3, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.55);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.55);
+  } 
+  else if (type === 'sparkle') {
+    // Magical Sparkle Chime: fast ascending arpeggio of bright bells
+    const freqs = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00];
+    freqs.forEach((f, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const t = now + i * 0.055;
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(f, t);
+
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(0.18, t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.32);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.34);
+    });
+  } 
+  else if (type === 'tada') {
+    // Ta-Da Victory Fanfare: cheerful trumpet chords
+    const notes = [
+      { f: 523.25, t: 0, d: 0.14 },    // C5
+      { f: 659.25, t: 0.14, d: 0.14 }, // E5
+      { f: 783.99, t: 0.28, d: 0.18 }, // G5
+      { f: 1046.50, t: 0.46, d: 0.55 },// C6
+      { f: 1318.51, t: 0.46, d: 0.55 } // E6
+    ];
+    notes.forEach(n => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const st = now + n.t;
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(n.f, st);
+
+      gain.gain.setValueAtTime(0.01, st);
+      gain.gain.linearRampToValueAtTime(0.22, st + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, st + n.d);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(st);
+      osc.stop(st + n.d);
+    });
+  } 
+  else if (type === 'pop') {
+    // Cute Cartoon Bubble Pop
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(450, now);
+    osc.frequency.exponentialRampToValueAtTime(1400, now + 0.08);
+
+    gain.gain.setValueAtTime(0.35, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.1);
+  }
+}
+
+function stopAmbient() {
+  currentAmbientNodes.forEach(node => {
+    try {
+      if (node.stop) node.stop();
+      if (node.disconnect) node.disconnect();
+    } catch(e){}
+  });
+  currentAmbientNodes = [];
+  activeFxName = null;
+  document.querySelectorAll('.fx-btn').forEach(b => b.classList.remove('active'));
+  const statusEl = document.getElementById('fxStatus');
+  if (statusEl) {
+    statusEl.textContent = 'متوقف';
+    statusEl.style.background = '#0D47A1';
+  }
+}
+
+function playAmbient(type) {
+  stopAmbient();
+  const ctx = getAudioContext();
+  activeFxName = type;
+  
+  const statusEl = document.getElementById('fxStatus');
+  if (statusEl) {
+    statusEl.textContent = 'يعمل الآن 🟢';
+    statusEl.style.background = '#2E7D32';
+  }
+
+  if (type === 'rain') {
+    const btn = document.getElementById('fxRain');
+    if (btn) btn.classList.add('active');
+    const bufferSize = ctx.sampleRate * 2;
+    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    let lastOut = 0.0;
+    for (let i = 0; i < bufferSize; i++) {
+      let white = Math.random() * 2 - 1;
+      data[i] = (lastOut + (0.02 * white)) / 1.02;
+      lastOut = data[i];
+      data[i] *= 3.5;
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 850;
+
+    const gain = ctx.createGain();
+    gain.gain.value = 0.12;
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    noise.start();
+    currentAmbientNodes.push(noise, filter, gain);
+  } 
+  else if (type === 'sea') {
+    const btn = document.getElementById('fxSea');
+    if (btn) btn.classList.add('active');
+    const bufferSize = ctx.sampleRate * 3;
+    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    let b0 = 0, b1 = 0, b2 = 0;
+    for (let i = 0; i < bufferSize; i++) {
+      let white = Math.random() * 2 - 1;
+      b0 = 0.99886 * b0 + white * 0.0555179;
+      b1 = 0.99332 * b1 + white * 0.0750759;
+      b2 = 0.96900 * b2 + white * 0.1538520;
+      data[i] = (b0 + b1 + b2) * 0.35;
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = 420;
+    filter.Q.value = 1.0;
+
+    const gain = ctx.createGain();
+    gain.gain.value = 0.15;
+
+    const lfo = ctx.createOscillator();
+    lfo.frequency.value = 0.18;
+    const lfoGain = ctx.createGain();
+    lfoGain.gain.value = 0.09;
+    lfo.connect(lfoGain);
+    lfoGain.connect(gain.gain);
+    lfo.start();
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    noise.start();
+    currentAmbientNodes.push(noise, filter, gain, lfo, lfoGain);
+  }
+  else if (type === 'birds') {
+    const btn = document.getElementById('fxBirds');
+    if (btn) btn.classList.add('active');
+    const masterGain = ctx.createGain();
+    masterGain.gain.value = 0.14;
+    masterGain.connect(ctx.destination);
+
+    function triggerChirp() {
+      if (activeFxName !== 'birds') return;
+      const osc = ctx.createOscillator();
+      const chirpGain = ctx.createGain();
+      const now = ctx.currentTime;
+      const baseFreq = 2200 + Math.random() * 800;
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(baseFreq, now);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq + 700, now + 0.08);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq - 300, now + 0.18);
+
+      chirpGain.gain.setValueAtTime(0.01, now);
+      chirpGain.gain.linearRampToValueAtTime(0.18, now + 0.04);
+      chirpGain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+
+      osc.connect(chirpGain);
+      chirpGain.connect(masterGain);
+      osc.start(now);
+      osc.stop(now + 0.25);
+
+      const nextTime = 1200 + Math.random() * 2500;
+      setTimeout(triggerChirp, nextTime);
+    }
+    triggerChirp();
+    currentAmbientNodes.push(masterGain);
+  }
+  else if (type === 'wind') {
+    const btn = document.getElementById('fxWind');
+    if (btn) btn.classList.add('active');
+    const bufferSize = ctx.sampleRate * 2;
+    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 280;
+
+    const gain = ctx.createGain();
+    gain.gain.value = 0.18;
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    noise.start();
+    currentAmbientNodes.push(noise, filter, gain);
+  }
+}
+
+/* =========================================================================
+   3. Speech Synthesis Engine & Cheerful Cartoon Phrases
+   ========================================================================= */
+const CARTOON_CHEER_PHRASES = [
+  { text: "برافو يا أحلى ميليسيا في الدنيا! 🌟", fx: "tada", lang: "ar-EG" },
+  { text: "شطورة خالص يا أميرة ميليسيا! 💖", fx: "sparkle", lang: "ar-EG" },
+  { text: "يا سلام على الذكاء والجمال والابتسامة الحلوة! 👑", fx: "sparkle", lang: "ar-EG" },
+  { text: "عاش يا بطلة الأبطال يا صاحبة الميدالية الذهبية! 🥇", fx: "tada", lang: "ar-EG" },
+  { text: "ممتازة يا ميليسيا.. كملي يا قمر! 🎈", fx: "boing", lang: "ar-EG" },
+  { text: "Yay Melicia! You are an amazing superstar! ⭐", fx: "tada", lang: "en-US" }
+];
+
+function speak(text, lang = 'ar-EG', pitch = 1.25, rate = 0.95) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = lang;
+  utter.rate = rate; // Energetic cartoon pace
+  utter.pitch = pitch; // Childish cheerful high cartoon pitch
+  
+  const voices = window.speechSynthesis.getVoices();
+  const matched = voices.find(v => v.lang.toLowerCase().startsWith(lang.toLowerCase().slice(0, 2)));
+  if (matched) utter.voice = matched;
+  
+  window.speechSynthesis.speak(utter);
+}
+
+function speakRandomCheer() {
+  const chosen = CARTOON_CHEER_PHRASES[Math.floor(Math.random() * CARTOON_CHEER_PHRASES.length)];
+  playCartoonSound(chosen.fx);
+  setTimeout(() => {
+    speak(chosen.text, chosen.lang, 1.35, 1.0);
+  }, 180);
+}
+
+/* =========================================================================
+   Rich Interactive Learning Datasets (Arabic, English, Numbers)
+   ========================================================================= */
+const AR_LETTERS_DATA = [
+  {l:'أ', name:'ألف', color:'#FFE2BC', words:[{ar:'أرنب', en:'Rabbit', e:'🐰'}, {ar:'أسد', en:'Lion', e:'🦁'}, {ar:'أناناس', en:'Pineapple', e:'🍍'}]},
+  {l:'ب', name:'باء', color:'#CDE4F5', words:[{ar:'بطة', en:'Duck', e:'🦆'}, {ar:'بيت', en:'House', e:'🏠'}, {ar:'برتقال', en:'Orange', e:'🍊'}]},
+  {l:'ت', name:'تاء', color:'#FFCCD2', words:[{ar:'تفاحة', en:'Apple', e:'🍎'}, {ar:'تاج', en:'Crown', e:'👑'}, {ar:'تمساح', en:'Crocodile', e:'🐊'}]},
+  {l:'ث', name:'ثاء', color:'#E2D9F8', words:[{ar:'ثعلب', en:'Fox', e:'🦊'}, {ar:'ثلج', en:'Snow', e:'❄️'}, {ar:'ثوب', en:'Dress', e:'👗'}]},
+  {l:'ج', name:'جيم', color:'#D7F1D0', words:[{ar:'جمل', en:'Camel', e:'🐪'}, {ar:'جرس', en:'Bell', e:'🔔'}, {ar:'جزر', en:'Carrot', e:'🥕'}]},
+  {l:'ح', name:'حاء', color:'#FFF0B8', words:[{ar:'حصان', en:'Horse', e:'🐴'}, {ar:'حمامة', en:'Dove', e:'🕊️'}, {ar:'حوت', en:'Whale', e:'🐋'}]},
+  {l:'خ', name:'خاء', color:'#FAD2E5', words:[{ar:'خروف', en:'Sheep', e:'🐑'}, {ar:'خبز', en:'Bread', e:'🍞'}, {ar:'خيار', en:'Cucumber', e:'🥒'}]},
+  {l:'د', name:'دال', color:'#CEF2EA', words:[{ar:'دب', en:'Bear', e:'🐻'}, {ar:'ديك', en:'Rooster', e:'🐓'}, {ar:'دراجة', en:'Bicycle', e:'🚲'}]},
+  {l:'ذ', name:'ذال', color:'#FFE2BC', words:[{ar:'ذرة', en:'Corn', e:'🌽'}, {ar:'ذئب', en:'Wolf', e:'🐺'}, {ar:'ذهب', en:'Gold', e:'🪙'}]},
+  {l:'ر', name:'راء', color:'#CDE4F5', words:[{ar:'ريشة', en:'Feather', e:'🪶'}, {ar:'رمان', en:'Pomegranate', e:'🍇'}, {ar:'روبوت', en:'Robot', e:'🤖'}]},
+  {l:'ز', name:'زاي', color:'#FFCCD2', words:[{ar:'زرافة', en:'Giraffe', e:'🦒'}, {ar:'زهرة', en:'Flower', e:'🌸'}, {ar:'زيتون', en:'Olive', e:'🫒'}]},
+  {l:'س', name:'سين', color:'#E2D9F8', words:[{ar:'سمكة', en:'Fish', e:'🐟'}, {ar:'سيارة', en:'Car', e:'🚗'}, {ar:'سفينة', en:'Ship', e:'🚢'}]},
+  {l:'ش', name:'شين', color:'#D7F1D0', words:[{ar:'شمس', en:'Sun', e:'☀️'}, {ar:'شجرة', en:'Tree', e:'🌳'}, {ar:'شمعة', en:'Candle', e:'🕯️'}]},
+  {l:'ص', name:'صاد', color:'#FFF0B8', words:[{ar:'صقر', en:'Falcon', e:'🦅'}, {ar:'صاروخ', en:'Rocket', e:'🚀'}, {ar:'صندوق', en:'Box', e:'📦'}]},
+  {l:'ض', name:'ضاد', color:'#FAD2E5', words:[{ar:'ضفدع', en:'Frog', e:'🐸'}, {ar:'ضوء', en:'Light', e:'💡'}, {ar:'ضابط', en:'Officer', e:'👮'}]},
+  {l:'ط', name:'طاء', color:'#CEF2EA', words:[{ar:'طائرة', en:'Airplane', e:'✈️'}, {ar:'طبلة', en:'Drum', e:'🥁'}, {ar:'طماطم', en:'Tomato', e:'🍅'}]},
+  {l:'ظ', name:'ظاء', color:'#FFE2BC', words:[{ar:'ظرف', en:'Envelope', e:'✉️'}, {ar:'ظبي', en:'Deer', e:'🦌'}, {ar:'ظل', en:'Shadow', e:'👥'}]},
+  {l:'ع', name:'عين', color:'#CDE4F5', words:[{ar:'عنب', en:'Grapes', e:'🍇'}, {ar:'عصفور', en:'Bird', e:'🐦'}, {ar:'عسل', en:'Honey', e:'🍯'}]},
+  {l:'غ', name:'غين', color:'#FFCCD2', words:[{ar:'غزال', en:'Gazelle', e:'🦌'}, {ar:'غيمة', en:'Cloud', e:'☁️'}, {ar:'غواصة', en:'Submarine', e:'🛥️'}]},
+  {l:'ف', name:'فاء', color:'#E2D9F8', words:[{ar:'فيل', en:'Elephant', e:'🐘'}, {ar:'فراشة', en:'Butterfly', e:'🦋'}, {ar:'فراولة', en:'Strawberry', e:'🍓'}]},
+  {l:'ق', name:'قاف', color:'#D7F1D0', words:[{ar:'قمر', en:'Moon', e:'🌙'}, {ar:'قطار', en:'Train', e:'🚂'}, {ar:'قوس قزح', en:'Rainbow', e:'🌈'}]},
+  {l:'ك', name:'كاف', color:'#FFF0B8', words:[{ar:'كلب', en:'Dog', e:'🐶'}, {ar:'كتاب', en:'Book', e:'📖'}, {ar:'كرة', en:'Ball', e:'⚽'}]},
+  {l:'ل', name:'لام', color:'#FAD2E5', words:[{ar:'ليمون', en:'Lemon', e:'🍋'}, {ar:'لعبة', en:'Toy', e:'🧸'}, {ar:'لبن', en:'Milk', e:'🥛'}]},
+  {l:'م', name:'ميم', color:'#CEF2EA', words:[{ar:'موز', en:'Banana', e:'🍌'}, {ar:'مركب', en:'Boat', e:'⛵'}, {ar:'مفتاح', en:'Key', e:'🔑'}]},
+  {l:'ن', name:'نون', color:'#FFE2BC', words:[{ar:'نحلة', en:'Bee', e:'🐝'}, {ar:'نجمة', en:'Star', e:'⭐'}, {ar:'نمر', en:'Tiger', e:'🐯'}]},
+  {l:'هـ', name:'هاء', color:'#CDE4F5', words:[{ar:'هدية', en:'Gift', e:'🎁'}, {ar:'هلال', en:'Crescent', e:'🌙'}, {ar:'هاتف', en:'Phone', e:'📱'}]},
+  {l:'و', name:'واو', color:'#FFCCD2', words:[{ar:'وردة', en:'Rose', e:'🌹'}, {ar:'وسادة', en:'Pillow', e:'🛋️'}, {ar:'وطواط', en:'Bat', e:'🦇'}]},
+  {l:'ي', name:'ياء', color:'#E2D9F8', words:[{ar:'يد', en:'Hand', e:'✋'}, {ar:'يمامة', en:'Dove', e:'🕊️'}, {ar:'يخت', en:'Yacht', e:'⛵'}]}
+];
+
+const EN_LETTERS_DATA = [
+  {l:'Aa', name:'Letter A', color:'#FFE2BC', words:[{en:'Apple', ar:'تفاحة', e:'🍎'}, {en:'Ant', ar:'نملة', e:'🐜'}, {en:'Airplane', ar:'طائرة', e:'✈️'}]},
+  {l:'Bb', name:'Letter B', color:'#CDE4F5', words:[{en:'Bear', ar:'دب', e:'🐻'}, {en:'Ball', ar:'كرة', e:'⚽'}, {en:'Boat', ar:'قارب', e:'⛵'}]},
+  {l:'Cc', name:'Letter C', color:'#FFCCD2', words:[{en:'Cat', ar:'قطة', e:'🐱'}, {en:'Car', ar:'سيارة', e:'🚗'}, {en:'Cake', ar:'كعكة', e:'🎂'}]},
+  {l:'Dd', name:'Letter D', color:'#E2D9F8', words:[{en:'Dog', ar:'كلب', e:'🐶'}, {en:'Duck', ar:'بطة', e:'🦆'}, {en:'Drum', ar:'طبلة', e:'🥁'}]},
+  {l:'Ee', name:'Letter E', color:'#D7F1D0', words:[{en:'Elephant', ar:'فيل', e:'🐘'}, {en:'Egg', ar:'بيضة', e:'🥚'}, {en:'Eye', ar:'عين', e:'👁️'}]},
+  {l:'Ff', name:'Letter F', color:'#FFF0B8', words:[{en:'Fish', ar:'سمكة', e:'🐟'}, {en:'Frog', ar:'ضفدع', e:'🐸'}, {en:'Flower', ar:'زهرة', e:'🌸'}]},
+  {l:'Gg', name:'Letter G', color:'#FAD2E5', words:[{en:'Giraffe', ar:'زرافة', e:'🦒'}, {en:'Gift', ar:'هدية', e:'🎁'}, {en:'Grapes', ar:'عنب', e:'🍇'}]},
+  {l:'Hh', name:'Letter H', color:'#CEF2EA', words:[{en:'Horse', ar:'حصان', e:'🐴'}, {en:'House', ar:'منزل', e:'🏠'}, {en:'Hat', ar:'قبعة', e:'👒'}]},
+  {l:'Ii', name:'Letter I', color:'#FFE2BC', words:[{en:'Ice cream', ar:'مثلجات', e:'🍦'}, {en:'Island', ar:'جزيرة', e:'🏝️'}, {en:'Iguana', ar:'إغوانا', e:'🦎'}]},
+  {l:'Jj', name:'Letter J', color:'#CDE4F5', words:[{en:'Juice', ar:'عصير', e:'🧃'}, {en:'Jellyfish', ar:'قنديل البحر', e:'🪼'}, {en:'Jacket', ar:'جاكيت', e:'🧥'}]},
+  {l:'Kk', name:'Letter K', color:'#FFCCD2', words:[{en:'Kangaroo', ar:'كنغر', e:'🦘'}, {en:'Kite', ar:'طائرة ورقية', e:'🪁'}, {en:'Key', ar:'مفتاح', e:'🔑'}]},
+  {l:'Ll', name:'Letter L', color:'#E2D9F8', words:[{en:'Lion', ar:'أسد', e:'🦁'}, {en:'Lemon', ar:'ليمون', e:'🍋'}, {en:'Leaf', ar:'ورقة شجر', e:'🍃'}]},
+  {l:'Mm', name:'Letter M', color:'#D7F1D0', words:[{en:'Monkey', ar:'قرد', e:'🐵'}, {en:'Moon', ar:'قمر', e:'🌙'}, {en:'Mango', ar:'مانجو', e:'🥭'}]},
+  {l:'Nn', name:'Letter N', color:'#FFF0B8', words:[{en:'Nest', ar:'عش', e:'🪺'}, {en:'Nut', ar:'مكسرات', e:'🥜'}, {en:'Night', ar:'ليل', e:'🌌'}]},
+  {l:'Oo', name:'Letter O', color:'#FAD2E5', words:[{en:'Owl', ar:'بومة', e:'🦉'}, {en:'Orange', ar:'برتقال', e:'🍊'}, {en:'Octopus', ar:'أخطبوط', e:'🐙'}]},
+  {l:'Pp', name:'Letter P', color:'#CEF2EA', words:[{en:'Panda', ar:'باندا', e:'🐼'}, {en:'Pizza', ar:'بيتزا', e:'🍕'}, {en:'Penguin', ar:'بطريق', e:'🐧'}]},
+  {l:'Qq', name:'Letter Q', color:'#FFE2BC', words:[{en:'Queen', ar:'ملكة', e:'👑'}, {en:'Quail', ar:'سمان', e:'🐦'}, {en:'Question', ar:'سؤال', e:'❓'}]},
+  {l:'Rr', name:'Letter R', color:'#CDE4F5', words:[{en:'Rainbow', ar:'قوس قزح', e:'🌈'}, {en:'Rabbit', ar:'أرنب', e:'🐰'}, {en:'Robot', ar:'روبوت', e:'🤖'}]},
+  {l:'Ss', name:'Letter S', color:'#FFCCD2', words:[{en:'Sun', ar:'شمس', e:'☀️'}, {en:'Star', ar:'نجمة', e:'⭐'}, {en:'Strawberry', ar:'فراولة', e:'🍓'}]},
+  {l:'Tt', name:'Letter T', color:'#E2D9F8', words:[{en:'Tiger', ar:'نمر', e:'🐯'}, {en:'Tree', ar:'شجرة', e:'🌳'}, {en:'Train', ar:'قطار', e:'🚂'}]},
+  {l:'Uu', name:'Letter U', color:'#D7F1D0', words:[{en:'Umbrella', ar:'شمسية', e:'☂️'}, {en:'Unicorn', ar:'حصان أسطوري', e:'🦄'}, {en:'Up', ar:'فوق', e:'⬆️'}]},
+  {l:'Vv', name:'Letter V', color:'#FFF0B8', words:[{en:'Violin', ar:'كمان', e:'🎻'}, {en:'Van', ar:'شاحنة صغيرة', e:'🚐'}, {en:'Vegetable', ar:'خضار', e:'🥦'}]},
+  {l:'Ww', name:'Letter W', color:'#FAD2E5', words:[{en:'Whale', ar:'حوت', e:'🐋'}, {en:'Watch', ar:'ساعة يد', e:'⌚'}, {en:'Watermelon', ar:'بطيخ', e:'🍉'}]},
+  {l:'Xx', name:'Letter X', color:'#CEF2EA', words:[{en:'Xylophone', ar:'إكسيلفون', e:'🎼'}, {en:'X-ray', ar:'أشعة سينية', e:'🩻'}, {en:'Fox ending', ar:'ثعلب', e:'🦊'}]},
+  {l:'Yy', name:'Letter Y', color:'#FFE2BC', words:[{en:'Yacht', ar:'يخت', e:'⛵'}, {en:'Yo-yo', ar:'يويو', e:'🪀'}, {en:'Yellow', ar:'أصفر', e:'💛'}]},
+  {l:'Zz', name:'Letter Z', color:'#CDE4F5', words:[{en:'Zebra', ar:'حمار وحشي', e:'🦓'}, {en:'Zoo', ar:'حديقة حيوان', e:'🦁'}, {en:'Zipper', ar:'سوستة', e:'🤐'}]}
+];
+
+const NUMBERS_DATA = [
+  {num:1, arWord:'واحد', enWord:'One', emoji:'🍎', color:'#FFE2BC'},
+  {num:2, arWord:'اثنان', enWord:'Two', emoji:'⭐', color:'#CDE4F5'},
+  {num:3, arWord:'ثلاثة', enWord:'Three', emoji:'🍓', color:'#FFCCD2'},
+  {num:4, arWord:'أربعة', enWord:'Four', emoji:'🎈', color:'#E2D9F8'},
+  {num:5, arWord:'خمسة', enWord:'Five', emoji:'🦋', color:'#D7F1D0'},
+  {num:6, arWord:'ستة', enWord:'Six', emoji:'🌸', color:'#FFF0B8'},
+  {num:7, arWord:'سبعة', enWord:'Seven', emoji:'🐟', color:'#FAD2E5'},
+  {num:8, arWord:'ثمانية', enWord:'Eight', emoji:'🍊', color:'#CEF2EA'},
+  {num:9, arWord:'تسعة', enWord:'Nine', emoji:'🚗', color:'#FFE2BC'},
+  {num:10, arWord:'عشرة', enWord:'Ten', emoji:'🌟', color:'#CDE4F5'}
+];
+
+/* =========================================================================
+   4. Screen Views & Navigation Logic
+   ========================================================================= */
+let currentStoryIdx = 1;
+let currentSceneIdx = 0;
+let currentLearnTab = 'ar';
+
+function navigate(view) {
+  playCartoonSound('pop');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  if (view === 'home') document.getElementById('tabHome').classList.add('active');
+  if (view === 'stories') document.getElementById('tabStories').classList.add('active');
+  if (view === 'match') document.getElementById('tabMatch').classList.add('active');
+  if (view === 'learn') document.getElementById('tabLearn').classList.add('active');
+  if (view === 'album') document.getElementById('tabAlbum').classList.add('active');
+
+  const main = document.getElementById('appMain');
+
+  if (view === 'home') {
+    renderHomeView(main);
+  } else if (view === 'stories') {
+    renderStoryView(main, currentStoryIdx);
+  } else if (view === 'match') {
+    renderMatchView(main);
+  } else if (view === 'learn') {
+    renderLearnView(main);
+  } else if (view === 'album') {
+    renderAlbumView(main);
+  }
+}
+
+function renderHomeView(container) {
+  container.innerHTML = `
+    <!-- Hero Personal Greeting with Real Portrait & Gold Medal Badge -->
+    <div class="hero-welcome">
+      <div class="hero-avatar-box">
+        <span class="hero-crown-badge">👑</span>
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT" alt="ميليسيا">
+        <div class="hero-gold-badge">1#</div>
+      </div>
+      <div class="txt">
+        <h2>أهلاً يا بطلة ميليسيا! ☀️</h2>
+        <p>جاهزة لقصص الكتاب المقدس الـ 32، والحروف والأرقام التفاعلية مع أصوات كرتونية فائقة المرح؟</p>
+        <div class="hero-welcome-actions">
+          <button class="wave-btn" onclick="speakRandomCheer()">
+            تشجيع كرتوني 📢
+          </button>
+          <button class="wave-btn" style="background:#8E24AA;box-shadow:0 3px 0 #5E1074" onclick="playCartoonSound('sparkle'); speak('أهلاً يا أحلى ميليسيا! يلا نلعب سوا ونكسب نجوم كتييير!', 'ar-EG', 1.3, 1.0)">
+            رحّبي بي! 🗣️
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Hub -->
+    <div class="grid-2">
+      <div class="card-nav" onclick="navigate('stories')">
+        <div class="emoji-bubble" style="background:#FFF3E0">📖</div>
+        <b>32 قصة مقدسة</b>
+        <span>مشغل صوتي + مؤثرات</span>
+      </div>
+      <div class="card-nav" onclick="navigate('match')">
+        <div class="emoji-bubble" style="background:#E8F5E9">🧩</div>
+        <b>توصيل الحرف</b>
+        <span>ألعبي واربحي نجوماً</span>
+      </div>
+      <div class="card-nav" onclick="navigate('learn')">
+        <div class="emoji-bubble" style="background:#E1F5FE">🔤</div>
+        <b>الحروف والأرقام</b>
+        <span>كروت تفاعلية ونطق كرتوني</span>
+      </div>
+      <div class="card-nav" onclick="navigate('album')">
+        <div class="emoji-bubble" style="background:#FCE4EC">📸</div>
+        <b>ألبوم ميليسيا (9)</b>
+        <span>صور وذكريات البطلة</span>
+      </div>
+    </div>
+
+    <!-- Melicia's Golden Badge Highlight Card -->
+    <div class="card" style="background:linear-gradient(135deg, #FFF9C4, #FFF176);border:2px solid #FBC02D;display:flex;align-items:center;gap:12px">
+      <div style="width:68px;height:68px;border-radius:20px;overflow:hidden;flex-shrink:0;border:3px solid #F57F17;box-shadow:0 3px 8px rgba(0,0,0,0.15)">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY157PSs5a_bevS9_5BuqaldVc0x19yZlr__vpAMCyOcVzRFj1dkW4qLTKAR9fzE73RNL5bYXU0a5lbIDfbCVIUVeRr9c_Usu_s9LyS7DJnhkZMkqA0AIvZ28PVFsFbU5wUq9NevuJXlSLcR4wExalAL6pWeug-boWgKuWVv-eddRGJJ-BGewSnO-8rgvmUXJ8gZfARV81RiY-BpaAO7r0FbvPZ6YqStiMXg2CvapSX4mfURICSd8W" style="width:100%;height:100%;object-fit:cover" alt="شهادة تقدير ميليسيا">
+      </div>
+      <div style="flex:1">
+        <b style="font-size:1.05rem;color:#7F4B00;display:block">بطلة السباحة والتكريم 🏅</b>
+        <span style="font-size:.82rem;color:#9E5D00;display:block">شهادة أفضل أداء وتقدير لعام 2026</span>
+      </div>
+      <button class="btn btn-sun" onclick="navigate('album')" style="padding:6px 12px;font-size:.82rem">
+        الصور 📸
+      </button>
+    </div>
+
+    <!-- Featured Spotlight Story Card -->
+    <div class="card" style="background:linear-gradient(135deg, #F3E5F5, #EDE7F6);border:2px solid #D1C4E9">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span style="font-weight:900;color:#512DA8;font-size:.9rem">🌟 قصة الأسبوع المختارة</span>
+        <span style="background:#512DA8;color:#FFF;padding:2px 8px;border-radius:10px;font-size:.7rem">سفينة نوح</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="font-size:3rem">🚢🌈</div>
+        <div style="flex:1">
+          <b style="font-size:1.1rem;display:block">سفينة نوح وقوس قزح</b>
+          <span style="font-size:.82rem;color:#5E35B1;display:block">مع أصوات قطرات المطر ورائحة الأمل</span>
+        </div>
+        <button class="btn btn-primary" onclick="openStoryById(2)" style="padding:8px 12px;font-size:.85rem">
+          اسمعي 🎧
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function openStoryById(id) {
+  const idx = STORIES.findIndex(s => s.id === id);
+  if (idx !== -1) {
+    currentStoryIdx = idx;
+    currentSceneIdx = 0;
+    navigate('stories');
+  }
+}
+
+function renderStoryView(container, idx) {
+  const story = STORIES[idx];
+  const scene = story.scenes[currentSceneIdx] || story.scenes[0];
+
+  container.innerHTML = `
+    <div class="story-box">
+      <div class="story-header">
+        <button class="btn" style="padding:6px 12px;font-size:.85rem" onclick="showStoryListModal()">
+          📚 الفهرس (32)
+        </button>
+        <span class="story-badge">القصة ${story.id} من 32</span>
+      </div>
+
+      <h2 style="margin:6px 0 2px;font-size:1.45rem">${story.emoji} ${story.title}</h2>
+      <div style="font-size:.85rem;color:#777;direction:ltr;font-weight:700">${story.en}</div>
+
+      <div class="story-scene">${scene.e}</div>
+
+      <div class="story-ar">${scene.ar}</div>
+      <div class="story-en">${scene.en}</div>
+
+      <div class="story-dots">
+        ${story.scenes.map((_, i) => `<span class="${i === currentSceneIdx ? 'active' : ''}"></span>`).join('')}
+      </div>
+
+      <!-- Action Audio Controls -->
+      <div style="display:flex;gap:8px;justify-content:center;margin:16px 0 12px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="speak('${scene.ar.replace(/'/g,"\\'")}','ar-EG')">
+          🔊 قراءة عربي
+        </button>
+        <button class="btn btn-secondary" onclick="speak('${scene.en.replace(/'/g,"\\'")}','en-US')">
+          🔊 English
+        </button>
+        <button class="btn btn-sun" onclick="playAmbient('${story.fx}')">
+          ${story.fx === 'rain' ? '🌧️ تشغيل المطر' : story.fx === 'sea' ? '🌊 تشغيل البحر' : story.fx === 'birds' ? '🕊️ تشغيل الطيور' : '🍃 تشغيل الرياح'}
+        </button>
+        <button class="btn btn-fun" onclick="playCartoonSound('sparkle'); speak('قصة جميلة جداً يا ميليسيا!', 'ar-EG', 1.35, 1.0)">
+          ✨ تشجيع كرتوني
+        </button>
+      </div>
+
+      <!-- Story Navigation Buttons -->
+      <div style="display:flex;justify-content:space-between;margin-top:14px">
+        <button class="btn" onclick="prevStory()">
+          ⏮️ السابقة
+        </button>
+        <button class="btn btn-sun" onclick="nextSceneOrStory()">
+          ${currentSceneIdx < story.scenes.length - 1 ? 'المشهد التالي ⏩' : 'القصة التالية ⏭️'}
+        </button>
+      </div>
+    </div>
+  `;
+
+  if (story.fx) playAmbient(story.fx);
+}
+
+function nextSceneOrStory() {
+  playCartoonSound('pop');
+  const story = STORIES[currentStoryIdx];
+  if (currentSceneIdx < story.scenes.length - 1) {
+    currentSceneIdx++;
+    renderStoryView(document.getElementById('appMain'), currentStoryIdx);
+  } else {
+    currentStoryIdx = (currentStoryIdx + 1) % STORIES.length;
+    currentSceneIdx = 0;
+    renderStoryView(document.getElementById('appMain'), currentStoryIdx);
+  }
+}
+
+function prevStory() {
+  playCartoonSound('pop');
+  currentStoryIdx = (currentStoryIdx - 1 + STORIES.length) % STORIES.length;
+  currentSceneIdx = 0;
+  renderStoryView(document.getElementById('appMain'), currentStoryIdx);
+}
+
+function showStoryListModal() {
+  playCartoonSound('pop');
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+  
+  content.innerHTML = `
+    <h3 style="margin-top:0">📖 مكتبة قصص الكتاب المقدس (32)</h3>
+    <div style="max-height:360px;overflow-y:auto;display:grid;gap:8px;text-align:right;padding-right:4px">
+      ${STORIES.map((s, i) => `
+        <div style="display:flex;align-items:center;justify-content:space-between;background:#F5F7FA;padding:10px 14px;border-radius:16px;cursor:pointer;border:2px solid transparent"
+             onclick="selectStory(${i})">
+          <span><b>${s.id}. ${s.emoji} ${s.title}</b></span>
+          <span style="font-size:.78rem;background:#E2E8F0;padding:2px 8px;border-radius:8px">${s.fx === 'rain' ? '🌧️ مطر' : s.fx === 'sea' ? '🌊 بحر' : s.fx === 'birds' ? '🕊️ طيور' : '🍃 رياح'}</span>
+        </div>
+      `).join('')}
+    </div>
+    <button class="btn btn-primary" style="margin-top:14px;width:100%" onclick="closeModal()">إغلاق</button>
+  `;
+  overlay.classList.add('open');
+}
+
+function selectStory(i) {
+  currentStoryIdx = i;
+  currentSceneIdx = 0;
+  closeModal();
+  renderStoryView(document.getElementById('appMain'), currentStoryIdx);
+}
+
+function closeModal() {
+  playCartoonSound('pop');
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+/* =========================================================================
+   5. Interactive Letter-Picture Matching Game (With Cartoon Voice Integration)
+   ========================================================================= */
+const MATCH_PAIRS = [
+  {letter:'أ', name:'أرنب', emoji:'🐰'},
+  {letter:'ب', name:'بطة', emoji:'🦆'},
+  {letter:'ت', name:'تفاحة', emoji:'🍎'},
+  {letter:'ج', name:'جمل', emoji:'🐪'},
+  {letter:'ح', name:'حصان', emoji:'🐴'},
+  {letter:'د', name:'دب', emoji:'🐻'},
+  {letter:'س', name:'سمكة', emoji:'🐟'},
+  {letter:'ش', name:'شمس', emoji:'☀️'},
+  {letter:'ف', name:'فيل', emoji:'🐘'},
+  {letter:'ق', name:'قمر', emoji:'🌙'}
+];
+
+let currentMatchTarget = null;
+
+function renderMatchView(container) {
+  const target = MATCH_PAIRS[Math.floor(Math.random() * MATCH_PAIRS.length)];
+  currentMatchTarget = target;
+
+  const pool = [target];
+  while (pool.length < 3) {
+    const r = MATCH_PAIRS[Math.floor(Math.random() * MATCH_PAIRS.length)];
+    if (!pool.some(p => p.letter === r.letter)) pool.push(r);
+  }
+  pool.sort(() => Math.random() - 0.5);
+
+  container.innerHTML = `
+    <div class="card quiz-card">
+      <div style="font-weight:900;color:var(--primary);font-size:1.1rem">لعبة توصيل الحرف بالصورة 🧩</div>
+      <p style="margin:4px 0 10px;font-size:.92rem">ما هي الصورة التي تبدأ بحرف <b>(${target.letter})</b>؟</p>
+
+      <div style="width:90px;height:90px;margin:0 auto;border-radius:24px;background:var(--c1);display:grid;place-items:center;font-size:3.5rem;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,0.1)">
+        ${target.letter}
+      </div>
+
+      <div class="quiz-options">
+        ${pool.map((opt) => `
+          <button class="quiz-opt" onclick="checkMatchAnswer(this, '${opt.letter}')">
+            <span style="font-size:1.8rem;vertical-align:middle;margin-left:8px">${opt.emoji}</span>
+            <span>${opt.name}</span>
+          </button>
+        `).join('')}
+      </div>
+
+      <div id="matchFeedback" style="min-height:28px;margin-top:14px;font-weight:900;font-size:1.1rem"></div>
+    </div>
+  `;
+  speak(`ما هي الصورة التي تبدأ بحرف ${target.letter}؟`, 'ar-EG', 1.25, 0.95);
+}
+
+function checkMatchAnswer(btn, chosenLetter) {
+  const feedback = document.getElementById('matchFeedback');
+  if (chosenLetter === currentMatchTarget.letter) {
+    btn.classList.add('correct');
+    playCartoonSound('tada');
+    feedback.textContent = 'برافو يا ميليسيا! إجابة ممتازة 🎉⭐';
+    feedback.style.color = '#2E7D32';
+    
+    // Cheerful Cartoon Voice Cheering
+    setTimeout(() => {
+      speak('برافو يا أحلى ميليسيا في الدنيا! شطورة خالص!', 'ar-EG', 1.35, 1.0);
+    }, 200);
+
+    addStar();
+    setTimeout(() => {
+      showWinnerCelebrationModal();
+    }, 500);
+  } else {
+    btn.classList.add('wrong');
+    playCartoonSound('boing');
+    feedback.textContent = 'حاولي مرة أخرى يا بطلة 💪';
+    feedback.style.color = '#D32F2F';
+    speak('حاولي مرة تانية يا قمر!', 'ar-EG', 1.25, 1.0);
+  }
+}
+
+function showWinnerCelebrationModal() {
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+  
+  content.innerHTML = `
+    <div class="win-popup-img">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCTLOaFDX-RcjMoBtzpwXH2KV024q6u773z_1jTJFWZ2CEMQdmz1Suvu14OAW-t6Y5KCt56ReBMqqXw-0eVYOtSzGAH_yeexAW72FTvt3LKe0qtZasiNcg85zFQLW4k9OzhbZPLEoVa2CQpxtxESrpUOdifbYi9A70cIj18oAtFHKsDjRh0UQJ0uL72GDxyJThK6E5Z-pGSS08eKxwCsBoeVnZbXM0f4A9_TXZmE4tJWiY4fNmELT" alt="ميليسيا الفائزة">
+    </div>
+    <h2 style="margin:0 0 6px;color:#FB8500;font-size:1.4rem">🌟 برافو يا بطلة ميليسيا! 🌟</h2>
+    <p style="margin:0 0 14px;font-size:.92rem;font-weight:700">لقد ربحتِ نجمة ذهبية جديدة مع ابتسامتك الرائعة ومؤثرات الفوز الكرتونية 🥇</p>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-primary" style="flex:1" onclick="closeModal(); renderMatchView(document.getElementById('appMain'));">
+        التحدي التالي 🚀
+      </button>
+      <button class="btn btn-fun" onclick="speakRandomCheer()">
+        📢 تشجيع كرتوني
+      </button>
+    </div>
+  `;
+  overlay.classList.add('open');
+}
+
+/* =========================================================================
+   6. Comprehensive Interactive Learning Hub (Arabic, English, Numbers)
+   ========================================================================= */
+function renderLearnView(container) {
+  let gridContent = '';
+  
+  if (currentLearnTab === 'ar') {
+    gridContent = `
+      <div class="letter-grid">
+        ${AR_LETTERS_DATA.map((item, idx) => `
+          <button class="letter-btn" style="background:${item.color}" onclick="openArLetterModal(${idx})">
+            <span>${item.l}</span>
+            <small>${item.words[0].e} ${item.words[0].ar}</small>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  } else if (currentLearnTab === 'en') {
+    gridContent = `
+      <div class="letter-grid">
+        ${EN_LETTERS_DATA.map((item, idx) => `
+          <button class="letter-btn" style="background:${item.color}" onclick="openEnLetterModal(${idx})">
+            <span style="direction:ltr">${item.l}</span>
+            <small style="direction:ltr">${item.words[0].e} ${item.words[0].en}</small>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  } else if (currentLearnTab === 'num') {
+    gridContent = `
+      <div class="letter-grid" style="grid-template-columns:repeat(3,1fr)">
+        ${NUMBERS_DATA.map((item, idx) => `
+          <button class="letter-btn" style="background:${item.color}" onclick="openNumberModal(${idx})">
+            <span style="font-size:2.2rem">${item.num}</span>
+            <small>${item.emoji} ${item.arWord}</small>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  container.innerHTML = `
+    <!-- Top Learning Tabs Switcher -->
+    <div class="learn-tabs">
+      <button class="learn-tab ${currentLearnTab === 'ar' ? 'active' : ''}" onclick="switchLearnTab('ar')">
+        الحروف العربية (28) 🔤
+      </button>
+      <button class="learn-tab ${currentLearnTab === 'en' ? 'active' : ''}" onclick="switchLearnTab('en')">
+        English ABC (26) 🔠
+      </button>
+      <button class="learn-tab ${currentLearnTab === 'num' ? 'active' : ''}" onclick="switchLearnTab('num')">
+        الأرقام 1-10 🔢
+      </button>
+    </div>
+
+    <div class="card" style="text-align:center">
+      <h3 style="margin:2px 0 4px;font-size:1.2rem">
+        ${currentLearnTab === 'ar' ? 'عالم الحروف العربية التفاعلي' : currentLearnTab === 'en' ? 'Interactive English Alphabet' : 'عالم الأرقام والعد التفاعلي'}
+      </h3>
+      <p style="margin:0 0 12px;font-size:.85rem;color:#666">
+        اضغطي على أي بطاقة لسماع النطق الكرتوني المبهج والمؤثرات المرحة! 🌟
+      </p>
+
+      ${gridContent}
+    </div>
+  `;
+}
+
+function switchLearnTab(tab) {
+  playCartoonSound('pop');
+  currentLearnTab = tab;
+  renderLearnView(document.getElementById('appMain'));
+}
+
+/* --- Modal 1: Arabic Letter Interactive Sheet --- */
+function openArLetterModal(idx) {
+  playCartoonSound('sparkle');
+  const item = AR_LETTERS_DATA[idx];
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+
+  content.innerHTML = `
+    <div class="learn-sheet-badge" style="background:${item.color};color:#9B4500">
+      ${item.l}
+    </div>
+
+    <h2 style="margin:0 0 4px;font-size:1.6rem">حرف ${item.name} (${item.l})</h2>
+    <p style="margin:0 0 12px;color:#64748B;font-size:.88rem">اضغطي على أي كلمة أو صورة لسماع نطقها الفوري 🗣️</p>
+
+    <!-- 3 Big Visual Interactive Words -->
+    <div class="sheet-examples-grid">
+      ${item.words.map(w => `
+        <div class="sheet-example-item" onclick="speakWord('${w.ar}', 'ar-EG')">
+          <span class="ex-emoji">${w.e}</span>
+          <span class="ex-word">${w.ar}</span>
+          <span class="ex-sub">${w.en}</span>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Audio & Action Buttons -->
+    <div style="display:flex;gap:8px;margin:16px 0 10px;flex-wrap:wrap">
+      <button class="btn btn-primary" style="flex:1" onclick="speak('حرف ${item.name} .. ${item.words.map(w => w.ar).join(' .. ')}', 'ar-EG', 1.28, 0.95)">
+        🔊 نطق الحرف والكلمات
+      </button>
+      <button class="btn btn-fun" onclick="playCartoonSound('tada'); speak('شطورة خالص يا ميليسيا!', 'ar-EG', 1.35, 1.0)">
+        📢 تشجيع كرتوني
+      </button>
+      <button class="btn btn-sun" onclick="addStar(); triggerMeliciaCheer()">
+        ⭐ نجمة للبطلة
+      </button>
+    </div>
+
+    <button class="btn" style="width:100%;background:#F1F5F9" onclick="closeModal()">
+      إغلاق الكارت ✖️
+    </button>
+  `;
+
+  overlay.classList.add('open');
+  speak(`حرف ${item.name} .. ${item.words[0].ar}`, 'ar-EG', 1.25, 0.95);
+}
+
+/* --- Modal 2: English Letter Interactive Sheet --- */
+function openEnLetterModal(idx) {
+  playCartoonSound('sparkle');
+  const item = EN_LETTERS_DATA[idx];
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+
+  content.innerHTML = `
+    <div class="learn-sheet-badge" style="background:${item.color};color:#0D47A1;font-size:4.2rem;direction:ltr">
+      ${item.l}
+    </div>
+
+    <h2 style="margin:0 0 4px;font-size:1.6rem;direction:ltr">${item.name} (${item.l})</h2>
+    <p style="margin:0 0 12px;color:#64748B;font-size:.88rem">Tap any word or icon to hear English pronunciation 🎧</p>
+
+    <div class="sheet-examples-grid">
+      ${item.words.map(w => `
+        <div class="sheet-example-item" onclick="speakWord('${w.en}', 'en-US')">
+          <span class="ex-emoji">${w.e}</span>
+          <span class="ex-word" style="direction:ltr">${w.en}</span>
+          <span class="ex-sub">${w.ar}</span>
+        </div>
+      `).join('')}
+    </div>
+
+    <div style="display:flex;gap:8px;margin:16px 0 10px;flex-wrap:wrap">
+      <button class="btn btn-secondary" style="flex:1" onclick="speak('${item.name} .. ${item.words.map(w => w.en).join(' .. ')}', 'en-US', 1.25, 0.95)">
+        🔊 English Audio
+      </button>
+      <button class="btn btn-fun" onclick="playCartoonSound('tada'); speak('Yay Melicia! You are a superstar!', 'en-US', 1.3, 1.0)">
+        ⭐ Super Melicia!
+      </button>
+    </div>
+
+    <button class="btn" style="width:100%;background:#F1F5F9" onclick="closeModal()">
+      Close ✖️
+    </button>
+  `;
+
+  overlay.classList.add('open');
+  speak(`${item.name} .. ${item.words[0].en}`, 'en-US', 1.25, 0.95);
+}
+
+/* --- Modal 3: Number & Interactive Counting Sheet --- */
+let activeCountTarget = 0;
+let countedItems = 0;
+
+function openNumberModal(idx) {
+  playCartoonSound('pop');
+  const item = NUMBERS_DATA[idx];
+  activeCountTarget = item.num;
+  countedItems = 0;
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+
+  const countButtons = Array.from({length: item.num}, (_, i) => `
+    <button class="count-item-btn" id="cntBtn_${i+1}" onclick="tapCountItem(${i+1}, '${item.emoji}')">
+      ${item.emoji}
+    </button>
+  `).join('');
+
+  content.innerHTML = `
+    <div class="learn-sheet-badge" style="background:${item.color};color:#C2410C;font-size:5.5rem">
+      ${item.num}
+    </div>
+
+    <h2 style="margin:0 0 2px;font-size:1.6rem">الرقم ${item.num} (${item.arWord})</h2>
+    <div style="font-size:1.05rem;font-weight:800;color:#0D47A1;direction:ltr;margin-bottom:8px">Number ${item.enWord}</div>
+    
+    <p style="margin:0;font-size:.86rem;color:#555">اضغطي على الأشكال التالية واحداً واحداً لتعدّي بصوتك! 👇</p>
+
+    <!-- Visual Interactive Counters -->
+    <div class="number-counter-box" id="counterBox">
+      ${countButtons}
+    </div>
+
+    <div id="countFeedback" style="font-weight:900;color:#2E7D32;font-size:1.05rem;min-height:24px;margin-bottom:12px">
+      اضغطي للبدء بالعد: (1 من ${item.num})
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <button class="btn btn-primary" style="flex:1" onclick="speak('رقم ${item.arWord}', 'ar-EG', 1.25, 0.95)">
+        🔊 عربي (${item.arWord})
+      </button>
+      <button class="btn btn-secondary" style="flex:1" onclick="speak('Number ${item.enWord}', 'en-US', 1.25, 0.95)">
+        🔊 English (${item.enWord})
+      </button>
+    </div>
+
+    <button class="btn" style="width:100%;background:#F1F5F9" onclick="closeModal()">
+      إغلاق ✖️
+    </button>
+  `;
+
+  overlay.classList.add('open');
+  speak(`الرقم ${item.num} .. ${item.arWord}`, 'ar-EG', 1.25, 0.95);
+}
+
+function tapCountItem(num, emoji) {
+  const btn = document.getElementById(`cntBtn_${num}`);
+  playCartoonSound('pop');
+  if (btn && !btn.classList.contains('counted')) {
+    btn.classList.add('counted');
+    countedItems++;
+    speak(`${num}`, 'ar-EG', 1.3, 1.0);
+    
+    const feedback = document.getElementById('countFeedback');
+    if (countedItems === activeCountTarget) {
+      feedback.textContent = `ممتازة يا ميليسيا! عددتِ ${activeCountTarget} بالكامل! 🎉👏`;
+      feedback.style.color = '#FB8500';
+      playCartoonSound('tada');
+      setTimeout(() => {
+        speak(`عاش يا بطلة ميليسيا! ممتازة خالص.. عددتِ ${activeCountTarget} أشكال!`, 'ar-EG', 1.35, 1.0);
+      }, 250);
+      addStar();
+    } else {
+      feedback.textContent = `عظيم! واصلي العد: (${countedItems} من ${activeCountTarget})`;
+    }
+  } else {
+    speak(`${num}`, 'ar-EG', 1.3, 1.0);
+  }
+}
+
+function speakWord(text, lang) {
+  playCartoonSound('pop');
+  speak(text, lang, 1.28, 0.95);
+}
+
+/* =========================================================================
+   7. Photo Album & Personal Memories View with All Real Photos
+   ========================================================================= */
+function renderAlbumView(container) {
+  container.innerHTML = `
+    <div class="card" style="text-align:center;padding:16px 12px">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px">
+        <span style="font-size:1.8rem">📸</span>
+        <h2 style="margin:0;font-size:1.35rem">ألبوم ذكريات وبطولات ميليسيا</h2>
+      </div>
+      <p style="margin:4px 0 14px;font-size:.85rem;color:#666">مجموعة صور ميليسيا الحقيقية وتكريماتها ومغامراتها الجميلة ✨</p>
+
+      <!-- Grid of Real Uploaded Photos -->
+      <div class="gallery-grid">
+        ${MELICIA_GALLERY.map((item) => `
+          <div class="photo-card" onclick="openPhotoDetail('${item.img}', '${item.title}', '${item.tag}')">
+            <div class="img-box">
+              <span class="tag">${item.tag}</span>
+              <img src="${item.img}" alt="${item.title}" loading="lazy">
+            </div>
+            <div class="caption">${item.title}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:8px">
+        <button class="btn btn-primary" style="flex:1" onclick="triggerMeliciaCheer()">
+          💖 تحية وتشجيع كرتوني!
+        </button>
+        <button class="btn btn-sun" onclick="installAppPWA()" title="تثبيت PWA">
+          📲 تثبيت PWA
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function openPhotoDetail(imgSrc, title, tag) {
+  playCartoonSound('pop');
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+  
+  content.innerHTML = `
+    <div style="border-radius:20px;overflow:hidden;margin-bottom:12px;border:3px solid #FFB703;max-height:360px">
+      <img src="${imgSrc}" style="width:100%;height:100%;object-fit:contain;background:#000" alt="${title}">
+    </div>
+    <span style="background:#FB8500;color:#fff;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:900">${tag}</span>
+    <h3 style="margin:10px 0 6px;font-size:1.15rem">${title}</h3>
+    <p style="margin:0 0 14px;font-size:.85rem;color:#555">أميرتنا ميليسيا تضيء كل مكان بضحكتها وذكائها وحضورها الحلو!</p>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-sun" style="flex:1" onclick="playCartoonSound('sparkle'); speak('${title}', 'ar-EG', 1.25, 0.95)">🔊 استمعي للعنوان</button>
+      <button class="btn btn-fun" onclick="speakRandomCheer()">📢 تشجيع</button>
+      <button class="btn btn-primary" onclick="closeModal()">إغلاق</button>
+    </div>
+  `;
+  overlay.classList.add('open');
+}
+
+function triggerMeliciaCheer() {
+  playCartoonSound('sparkle');
+  setTimeout(() => {
+    speak("ميليسيا أنتِ أحلى وأشطر بطلة في العالم كله! بنحبك يا أميرة!", 'ar-EG', 1.35, 1.0);
+  }, 200);
+  addStar();
+  showWinnerCelebrationModal();
+}
+
+/* =========================================================================
+   8. Utilities & Rewards
+   ========================================================================= */
+let stars = 25;
+function addStar() {
+  stars++;
+  const el = document.getElementById('starCount');
+  if (el) el.textContent = stars;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  navigate('home');
+});
+</script>
+</body></html>
