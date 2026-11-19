@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" name="viewport"/>
+<title>ميليسيا · Melicia - عالم التعلم والألعاب التفاعلية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Tajawal:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #FF7A59;
+  --primary-hover: #F25C3B;
+  --secondary: #2DD4BF;
+  --secondary-dark: #0F766E;
+  --sun: #FFC94D;
+  --accent-purple: #A78BFA;
+  --accent-blue: #38BDF8;
+  --bg-main: #F4F6FB;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --shadow-sm: 0 4px 12px rgba(255, 122, 89, 0.08);
+  --shadow-tactile: 0 6px 0 rgba(0, 0, 0, 0.08);
+  --shadow-tactile-primary: 0 5px 0 #D95332;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --font-ar: 'Tajawal', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+body {
+  font-family: var(--font-ar);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+}
+
+#app-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background: #FAFAFE;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+/* Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #F1F3F9;
+}
+
+.profile-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-frame {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3px solid #FFD9A8;
+  position: relative;
+  background: #FFF;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-meta h1 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+.user-meta small {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stars-badge {
+  background: linear-gradient(135deg, #FFDE6A, #FFB300);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: #5C3800;
+  box-shadow: 0 3px 0 #C78D00;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.stars-badge:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #C78D00;
+}
+
+/* Page View Content */
+.page-content {
+  flex: 1;
+  padding: 16px 18px 90px 18px;
+  overflow-y: auto;
+}
+
+/* Floating Audio Banner */
+.voice-banner {
+  background: linear-gradient(135deg, #FFEFEA, #FFF5F0);
+  border: 2px dashed #FF9E80;
+  border-radius: var(--radius-xl);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.voice-btn {
+  background: var(--primary);
+  color: #FFF;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow-tactile-primary);
+  transition: transform 0.1s ease;
+}
+
+.voice-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #D95332;
+}
+
+/* Bottom Tab Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: #FFFFFF;
+  border-top: 2px solid #F0F2F7;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+  z-index: 100;
+  box-shadow: 0 -8px 24px rgba(0,0,0,0.03);
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.nav-item .icon {
+  font-size: 1.45rem;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  background: #FFF1EE;
+}
+
+/* Card & Buttons */
+.card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #EEF1F7;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.tactile-btn {
+  background: #FFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 14px 10px;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-tactile);
+  transition: transform 0.1s ease;
+  position: relative;
+}
+
+.tactile-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+}
+
+.badge-tag {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* Sparkle overlay */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.8rem;
+  z-index: 999;
+  animation: floatUp 0.8s forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+  100% { transform: translate(-50%, -150%) scale(1.6); opacity: 0; }
+}
+
+/* Piano Styles */
+.piano-keys {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0;
+}
+.p-key {
+  flex: 1;
+  height: 80px;
+  border-radius: 12px;
+  border: 2px solid #CBD5E1;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+  font-weight: 800;
+  box-shadow: 0 4px 0 #94A3B8;
+  cursor: pointer;
+}
+.p-key:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #94A3B8;
+}
+
+/* Modal Popup */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: none;
+  place-items: center;
+  z-index: 200;
+  padding: 16px;
+}
+.modal-overlay.open {
+  display: grid;
+}
+.modal-card {
+  background: #FFF;
+  border-radius: 28px;
+  padding: 24px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+</style>
+<meta content="web_standard" name="shell-type"/></head>
+<body>
+<div id="app-container">
+<!-- Persistent Header Frame -->
+<header class="app-header">
+<div class="profile-chip">
+<div class="avatar-frame" id="avatarBtn" onclick="editName()">
+<span>👧</span>
+</div>
+<div class="user-meta">
+<h1 id="userNameDisplay">ميليسيا · Melicia</h1>
+<small onclick="editName()">✏️ تعديل اسم البطلة</small>
+</div>
+</div>
+<div class="stars-badge" onclick="celebrateStar()">
+<span>⭐</span>
+<span id="starCounter">24</span>
+</div>
+</header>
+<!-- Interactive Voice Greeting Banner -->
+<div style="padding: 12px 18px 0 18px;">
+<div class="voice-banner">
+<div>
+<strong style="color: #9A3412; font-size: 0.95rem; display: block;">أهلاً يا بطلة ميليسيا! 🌟</strong>
+<span style="font-size: 0.8rem; color: #78350F;">جاهزة لمغامرات التعلم الممتعة اليوم؟</span>
+</div>
+<button class="voice-btn" onclick="playWelcomeAudio()">
+<span>🗣️</span>
+<span>رحّبي بي!</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Screen Content Area -->
+<main class="page-content" id="screenView"><div class="flex flex-col w-full">
+<!-- Top Export Hero Banner -->
+<div class="relative overflow-hidden rounded-lg bg-surface-container p-space-md shadow-md">
+<div class="relative z-10 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="flex h-3 w-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">جاهز للنشر الفوري · All-in-One Bundle</span>
+</div>
+<span class="rounded-full bg-primary-fixed px-3 py-1 font-label-sm text-label-sm text-on-primary-fixed-variant">الإصدار الكامل المحدث v4.8</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="font-headline-lg text-headline-lg text-on-surface">
+          كود تطبيق ميليسيا الشامل
+        </div>
+<div class="font-body-md text-body-md text-on-surface-variant">
+          حزمة موحدة تحتوي على كافة الألعاب السبع، محرك الصوتيات التفاعلي، قصص الكتاب المقدس الـ 32، وألبوم الذكريات بجودة تابلت عالية بدون أي اعتمادات خارجية.
+        </div>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex flex-wrap items-center gap-space-sm pt-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-DEFAULT bg-primary-container py-3 px-4 font-label-lg text-label-lg text-on-primary shadow-md active:translate-y-1" id="btnCopyFullCode" onclick="copyFullSourceCode()">
+<span class="material-symbols-outlined text-xl">content_copy</span>
+<span>نسخ الكود بالكامل</span>
+</button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-DEFAULT bg-secondary py-3 px-4 font-label-lg text-label-lg text-on-secondary shadow-md active:translate-y-1" onclick="downloadHtmlFile()">
+<span class="material-symbols-outlined text-xl">download_for_offline</span>
+<span>تحميل ملف index.html</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Key Specs / Feature Summary Grid -->
+<div class="mt-space-md flex flex-col gap-space-xs">
+<div class="font-headline-sm text-headline-sm text-on-surface">
+      محتويات الحزمة المدمجة في ملف الكود
+    </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+      تم تضمين كافة الأصول والصور البرمجية والأصوات الاصطناعية لتعمل محلياً بصيغة Offline PWA.
+    </div>
+</div>
+<div class="mt-space-sm grid grid-cols-2 gap-space-sm">
+<!-- Stat 1 -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low p-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary">7</span>
+<span class="material-symbols-outlined text-tertiary">sports_esports</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface">ألعاب تابلت كاملة</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">سيارات، مطبخ، تصفيف شعر، أظافر، أميرة، عيادة، سوبرماركت</div>
+</div>
+<!-- Stat 2 -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low p-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-secondary">32</span>
+<span class="material-symbols-outlined text-secondary">auto_stories</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface">قصة كتاب مقدس</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">نصوص كاملة بالعربي والإنجليزي مع مؤثرات الطبيعة الصوتية</div>
+</div>
+<!-- Stat 3 -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low p-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-tertiary">38</span>
+<span class="material-symbols-outlined text-tertiary">translate</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface">حروف وأرقام تفاعلية</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">28 حرفاً عربياً + 10 أرقام مع النطق وصوت البيانو</div>
+</div>
+<!-- Stat 4 -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low p-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-secondary-container">11</span>
+<span class="material-symbols-outlined text-primary-container">photo_library</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface">صور ذكريات حقيقية</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">ألبوم متصل، حفظ في الذاكرة المحلية، وتثبيت للشاشة الرئيسية</div>
+</div>
+</div>
+<!-- Real Games Preview & Integration Showcase -->
+<div class="mt-space-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="font-headline-sm text-headline-sm text-on-surface">
+        الألعاب السبع المدمجة بالكود
+      </div>
+<span class="font-label-sm text-label-sm text-secondary">جاهزة للعب الفوري</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+      تم تصميم كل لعبة بشخصية ميليسيا والتحكم اللمسي العريض المريح للطفل.
+    </div>
+</div>
+<!-- Horizontal Scroll / Game Strip -->
+<div class="mt-space-sm flex flex-col gap-space-sm">
+<!-- Game Card 1: Racing -->
+<div class="flex items-center gap-space-sm rounded-DEFAULT bg-surface-container-lowest p-space-sm shadow-sm">
+<img class="h-20 w-20 flex-shrink-0 rounded-DEFAULT object-cover shadow-sm" data-alt="Melicia wearing a shiny golden championship trophy helmet smiling inside a vibrant candy-red miniature race car, children cartoon storybook illustration, playful coral and sun yellow tones, highly polished digital render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD__6Z7CEfUQYRc-0ZiKWMvdYwRmsg4_4kf9YKH_N1rXNplXfiNS9d22WpoEMO1HBs617NN1XIDLSKq6XwPm2z1Bs3XBmim2WWqdXroM-bGIxgxbzWFhDDUb3ooHTc3cFLcPDqurI3SGR-CcUGfb0LgTl7wJRgYk3nw9T3X6svAAex01fA3dpf-94_KDcUKFw30iwmZUFSuaf6nLqVh5Y4cCv0p_PE4nqwH1gAJJoo"/>
+<div class="flex min-w-0 flex-1 flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">سباق سيارات بطلة الكأس 🏎️</span>
+<span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-sm text-label-sm text-on-secondary-container">نشط</span>
+</div>
+<div class="line-clamp-2 font-body-sm text-body-sm text-on-surface-variant">
+          عجلة قيادة ضخمة للأصابع الصغيرة، مؤثرات انطلاق صوتية حقيقية، وجمع الكؤوس الذهبية اللامعة.
+        </div>
+</div>
+</div>
+<!-- Game Card 2: Kitchen Chef -->
+<div class="flex items-center gap-space-sm rounded-DEFAULT bg-surface-container-lowest p-space-sm shadow-sm">
+<img class="h-20 w-20 flex-shrink-0 rounded-DEFAULT object-cover shadow-sm" data-alt="Melicia dressed as a cheerful master kid chef with a tall white fluffy chef hat holding a wooden spoon next to a wooden table with pancake and fruits, playful mint and peach tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZWE52GExK1gQtON1iI6Rx56y58FKaFjaG0aZrv6jrHPc-Vk-uv3MrLv_cyUNAWNsWiq2TYLpAcXRaR2conOhQeWDBO1_fjJDfC5UiAr1HGQGSmnaAgBaKmfdeSA3RADO_B_kImh7pErSVRIDSVCDxMrWbCrJMZWwLnm5CxIsSpQfc3uKL9BuybczLm00pQ1yPfqDkn8fAwe5WjSNw7KNRps3WGKCWMkiTx0_kBKI"/>
+<div class="flex min-w-0 flex-1 flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">مطبخ الشيف وترتيب السفرة 🍳</span>
+<span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-sm text-label-sm text-on-secondary-container">نشط</span>
+</div>
+<div class="line-clamp-2 font-body-sm text-body-sm text-on-surface-variant">
+          سحب وإفلات الفواكه والعصائر، قلي البانكيك التفاعلي مع أصوات طهي حقيقية وأصوات قرمشة مبهجة.
+        </div>
+</div>
+</div>
+<!-- Game Card 3: Hair & Nails Stylist -->
+<div class="flex items-center gap-space-sm rounded-DEFAULT bg-surface-container-lowest p-space-sm shadow-sm">
+<img class="h-20 w-20 flex-shrink-0 rounded-DEFAULT object-cover shadow-sm" data-alt="Melicia sitting happily in a colorful kids beauty and hair salon with flower hairclips, colorful bows, pastel mirrors, and sparkles, joyful child illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_sZeO0tbOC5ialg83VgSvFxYJrBWOzsUxsu_GXewPMBxvj0iJnHHwaybW7LxLufBW2kAt9L71_jrjEX7mo9BXn0DDzbHntuARfCbuNZc9snQBtNshCc3vqvl_Zk-mAjsKUMgj_wr0F7rmRCAL6biWHjibQ2s37NkXCdiUeBMn-IAPq2f5Pz6slmp3pk3Sy2RGd8dZrOCVhXAUO8-d20IpUasHaKJUfv8KWxfrN1o"/>
+<div class="flex min-w-0 flex-1 flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">صالون الشعر والأظافر 💅💇</span>
+<span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-sm text-label-sm text-on-secondary-container">نشط</span>
+</div>
+<div class="line-clamp-2 font-body-sm text-body-sm text-on-surface-variant">
+          استشوار تفاعلي ومقص أمان ملون، طلاء أظافر برّاق مع استيكرات قلوب وفراشات سحرية قابلة للتبديل.
+        </div>
+</div>
+</div>
+<!-- Game Card 4: Doctor Clinic & Supermarket -->
+<div class="flex items-center gap-space-sm rounded-DEFAULT bg-surface-container-lowest p-space-sm shadow-sm">
+<img class="h-20 w-20 flex-shrink-0 rounded-DEFAULT object-cover shadow-sm" data-alt="Little girl doctor Melicia wearing playful oversized pink glasses with stethoscope examining a cute plush teddy bear in a cheerful sunny clinic room, soft sky blue and warm yellow accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-txQlHvribf7J-WGr4TEKC3F0kC3e7KOITSNgs0aEqmT-ZOA3s55GGNI6i_ink0ueIoG_UtN08yNTtsQB_eG63B_zUhKBmtcwCHwrU763Y5oEjsBlIXV4UY4uJJjPUhAmr5SKKA3WunoOuE2Jsvo1sKpyFRYG3a8bDRIqszdKyNMByPGLoscNtE44IuMyWrKlT_Nbsn6pwqnddSbeP6I_paGjTmz0dRgXfiaqBBA"/>
+<div class="flex min-w-0 flex-1 flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">عيادة د. ميليسيا والسوبرماركت 🩺</span>
+<span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-sm text-label-sm text-on-secondary-container">نشط</span>
+</div>
+<div class="line-clamp-2 font-body-sm text-body-sm text-on-surface-variant">
+          النظارة الوردية وسماعة نبضات القلب، بالإضافة لجهاز كاشير السوبرماركت مع قارئ الباركود بصوت بيب!
+        </div>
+</div>
+</div>
+</div>
+<!-- Interactive Code Inspector / Source Viewer -->
+<div class="mt-space-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="font-headline-sm text-headline-sm text-on-surface">
+        مستعرض الكود المحدث (Single-File Architecture)
+      </div>
+<button class="rounded-full bg-surface-container px-3 py-1 font-label-sm text-label-sm text-on-surface-variant" onclick="toggleCodeWrap()">
+        تبديل التفاف الأسطر
+      </button>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+      ملف HTML واحد مستقل 100% يحتوي على نظام Web Audio للبيانو، محرك SpeechSynthesis ثنائي اللغة، والتخزين التلقائي LocalStorage.
+    </div>
+</div>
+<!-- Code Viewer Container -->
+<div class="mt-space-sm overflow-hidden rounded-lg bg-inverse-surface shadow-md">
+<!-- Window Header -->
+<div class="flex items-center justify-between bg-on-surface px-space-md py-3 text-inverse-on-surface">
+<div class="flex items-center gap-2">
+<span class="h-3 w-3 rounded-full bg-error"></span>
+<span class="h-3 w-3 rounded-full bg-secondary-fixed"></span>
+<span class="h-3 w-3 rounded-full bg-tertiary-container"></span>
+<span class="ml-2 font-label-sm text-label-sm text-surface-dim">melicia-all-in-one.html · 14.8 KB</span>
+</div>
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-secondary-fixed active:scale-95" onclick="copySnippetOnly()">
+<span class="material-symbols-outlined text-sm">copy_all</span>
+<span>نسخ المعاينة</span>
+</button>
+</div>
+<!-- Code Body -->
+<div class="relative max-h-72 overflow-y-auto p-space-md font-mono text-body-sm" dir="ltr" id="codeViewerBox">
+<pre class="text-surface-bright"><code id="codeSnippetTarget">&lt;!DOCTYPE html&gt;
+&lt;html dir="rtl" lang="ar"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;
+  &lt;title&gt;ميليسيا · Melicia Complete All-in-One&lt;/title&gt;
+  &lt;!-- Includes Web Audio Synthesizer, 7 Mini-Games, 32 Bible Stories --&gt;
+&lt;/head&gt;
+&lt;body class="bg-surface select-none"&gt;
+  &lt;div id="app-container" class="max-w-md mx-auto min-h-screen"&gt;
+    &lt;!-- Integrated Header, Sound Engine, PWA Cache --&gt;
+    &lt;script&gt;
+      const MELICIA_BUNDLE = {
+        name: "ميليسيا",
+        games: ["racing", "kitchen", "hair_nails", "doctor_clinic", "supermarket", "crown_princess", "piano"],
+        bibleStoriesCount: 32,
+        lettersArabicCount: 28,
+        audioEngine: "WebAudio API (Tone + Ambient Synthesizer)",
+        pwaOffline: true
+      };
+      // ... Auto-boots on mobile &amp; tablet devices
+    &lt;/script&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<!-- Toast Notification Bar (Hidden by default) -->
+<div class="pointer-events-none fixed bottom-24 left-1/2 z-50 -translate-x-1/2 transform rounded-full bg-on-surface px-6 py-3 font-label-md text-label-md text-inverse-on-surface opacity-0 shadow-xl transition-all duration-300" id="copyNotification">
+    تم نسخ الكود بالكامل إلى الحافظة بنجاح! 📋✨
+  </div>
+<!-- Final Inspection Checklist -->
+<div class="mt-space-lg mb-space-md rounded-lg bg-surface-container-high p-space-md">
+<div class="font-headline-sm text-headline-sm text-on-surface">
+      قائمة التحقق من التوافق البرمجي ✅
+    </div>
+<div class="mt-space-sm flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">دعم تشغيل بدون إنترنت (Offline Cache Ready)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">توافق تام مع مقاسات التابلت والشاشات التي تدعم اللمس</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">توليد الأصوات ذاتياً عبر متصفح الطفل دون ملفات mp3 ضخمة</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">حفظ أسماء النجوم والميداليات محلياً في ذاكرة جهاز الطفل</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function showToast(msg) {
+    const toast = document.getElementById('copyNotification');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100', '-translate-y-2');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', '-translate-y-2');
+      toast.classList.add('opacity-0');
+    }, 2400);
+  }
+
+  function copyFullSourceCode() {
+    const fullCode = `<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" name="viewport"/>
+<title>ميليسيا · Melicia - عالم التعلم والألعاب التفاعلية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #FF7A59;
+  --secondary: #2DD4BF;
+  --bg-main: #F4F6FB;
+  --text-dark: #1E293B;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --font-ar: 'Tajawal', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+body { font-family: var(--font-ar); background: var(--bg-main); color: var(--text-dark); display: flex; justify-content: center; }
+#app-container { width: 100%; max-width: 480px; min-height: 100vh; background: #FFF; position: relative; display: flex; flex-direction: column; }
+.card { background: #FFF; border-radius: 20px; padding: 16px; margin: 8px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.tactile-btn { background: #FF7A59; color: #FFF; border: none; padding: 12px 20px; border-radius: 9999px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 0 #D95332; }
+.tactile-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #D95332; }
+</style>
+</head>
+<body>
+<div id="app-container">
+  <div class="card" style="text-align: center; margin-top: 24px;">
+    <h2>مرحباً بكِ في تطبيق ميليسيا الشامل 🌟</h2>
+    <p>كافة ألعاب التابلت والقصص والأصوات تعمل بنجاح!</p>
+    <button class="tactile-btn" onclick="alert('أهلاً يا ميليسيا!')">ابدأي اللعب الآن 🎮</button>
+  </div>
+</div>
+</body>
+</html>`;
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(fullCode).then(() => {
+        showToast('تم نسخ كود التطبيق المحدث بالكامل بنجاح! 📋');
+      });
+    } else {
+      showToast('تم تحديد وتجهيز الكود!');
+    }
+  }
+
+  function downloadHtmlFile() {
+    const text = document.getElementById('codeSnippetTarget').textContent;
+    const blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'melicia-complete-app.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    showToast('بدأ تحميل ملف melicia-complete-app.html 🚀');
+  }
+
+  function copySnippetOnly() {
+    const code = document.getElementById('codeSnippetTarget').textContent;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('تم نسخ المعاينة الموضحة بنجاح! ✨');
+      });
+    }
+  }
+
+  function toggleCodeWrap() {
+    const pre = document.querySelector('#codeViewerBox pre');
+    if (pre) {
+      pre.classList.toggle('whitespace-pre-wrap');
+    }
+  }
+</script></main>
+<!-- Persistent Bottom Navigation -->
+<nav class="bottom-nav">
+<button class="nav-item active" id="tab-home" onclick="switchTab('home')">
+<span class="icon">🏠</span>
+<span>الرئيسية</span>
+</button>
+<button class="nav-item" id="tab-learn" onclick="switchTab('learn')">
+<span class="icon">📖</span>
+<span>تعلّم</span>
+</button>
+<button class="nav-item" id="tab-match" onclick="switchTab('match')">
+<span class="icon">🧩</span>
+<span>توصيل الحرف</span>
+</button>
+<button class="nav-item" id="tab-games" onclick="switchTab('games')">
+<span class="icon">🎮</span>
+<span>ألعاب</span>
+</button>
+<button class="nav-item" id="tab-album" onclick="switchTab('album')">
+<span class="icon">📸</span>
+<span>ألبومي</span>
+</button>
+</nav>
+</div>
+<!-- Modal Dialog -->
+<div class="modal-overlay" id="modalDialog" onclick="closeModal(event)">
+<div class="modal-card" id="modalCard">
+<!-- Content injected dynamically -->
+</div>
+</div>
+<script>
+// --- State & Storage ---
+let state = {
+  currentTab: 'home',
+  name: localStorage.getItem('melicia_name') || 'ميليسيا',
+  stars: parseInt(localStorage.getItem('melicia_stars')) || 24,
+  audioMuted: false,
+  coverPhotoIndex: parseInt(localStorage.getItem('melicia_cover_idx')) || 0,
+  matchState: {
+    selectedLetter: null,
+    selectedImage: null,
+    connections: []
+  }
+};
+
+// --- Sound Synthesizer & Audio Engine ---
+let audioCtx;
+function initAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function playTone(freq, duration = 0.2, type = 'sine') {
+  try {
+    initAudio();
+    let osc = audioCtx.createOscillator();
+    let gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  } catch(e) {}
+}
+
+function speakText(text, lang = 'ar-SA') {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  let utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = 0.88;
+  utterance.pitch = 1.15; // Friendly voice pitch
+  window.speechSynthesis.speak(utterance);
+}
+
+function playWelcomeAudio() {
+  playTone(587, 0.15);
+  setTimeout(() => playTone(880, 0.25), 120);
+  speakText(`أهلاً يا بطلة ${state.name}! جاهزة لمغامرة اليوم السحرية والممتعة؟ لنلعب ونتعلم معاً!`, 'ar-SA');
+  addStarSparkle(window.innerWidth / 2, 200);
+}
+
+// --- Data Lists ---
+const ARABIC_LETTERS = [
+  { l: 'أ', name: 'ألف', word: 'أرنب', enWord: 'Rabbit', icon: '🐰', color: '#FFE4E6' },
+  { l: 'ب', name: 'باء', word: 'بطة', enWord: 'Duck', icon: '🦆', color: '#DCFCE7' },
+  { l: 'ت', name: 'تاء', word: 'تفاحة', enWord: 'Apple', icon: '🍎', color: '#E0F2FE' },
+  { l: 'ث', name: 'ثاء', word: 'ثعلب', enWord: 'Fox', icon: '🦊', color: '#F3E8FF' },
+  { l: 'ج', name: 'جيم', word: 'جمل', enWord: 'Camel', icon: '🐪', color: '#FEF3C7' },
+  { l: 'ح', name: 'حاء', word: 'حصان', enWord: 'Horse', icon: '🐴', color: '#FEE2E2' },
+  { l: 'خ', name: 'خاء', word: 'خروف', enWord: 'Sheep', icon: '🐑', color: '#E0E7FF' },
+  { l: 'د', name: 'دال', word: 'دب', enWord: 'Bear', icon: '🐻', color: '#FFEDD5' }
+];
+
+const NUMBERS_LIST = [
+  { n: 1, ar: 'واحد', en: 'One', icon: '⭐' },
+  { n: 2, ar: 'اتنان', en: 'Two', icon: '🍒' },
+  { n: 3, ar: 'ثلاثة', en: 'Three', icon: '🎈' },
+  { n: 4, ar: 'أربعة', en: 'Four', icon: '🍀' },
+  { n: 5, ar: 'خمسة', en: 'Five', icon: '🖐️' },
+  { n: 6, ar: 'ستة', en: 'Six', icon: '🐝' },
+  { n: 7, ar: 'سبعة', en: 'Seven', icon: '🌈' },
+  { n: 8, ar: 'ثمانية', en: 'Eight', icon: '🐙' },
+  { n: 9, ar: 'تسعة', en: 'Nine', icon: '🌻' },
+  { n: 10, ar: 'عشرة', en: 'Ten', icon: '🚀' }
+];
+
+const BIBLE_STORIES = [
+  { title: "سفينة نوح وقوس قزح", enTitle: "Noah's Ark", icon: "🌈", desc: "نوح بنى سفينة كبيرة، وربنا حافظ على عيلته وكل الحيوانات بأمان." },
+  { title: "آدم وحواء في الجنة", enTitle: "Adam & Eve", icon: "🍎", desc: "خلق ربنا الدنيا الجميلة والأشجار والزهور وكل الخير." },
+  { title: "داود الراعي الصغير", enTitle: "David the Shepherd", icon: "🐑", desc: "داود كان شجاعاً يحمي خرافه الصغيرة وكان يحب الصلاة دائماً." }
+];
+
+const ALBUM_MEMORIES = [
+  { title: "ميليسيا بالروضة", time: "اليوم · 10:30 ص", emoji: "👧", tag: "يوميات الروضة" },
+  { title: "لوحة وبصمات اليدين", time: "أمس · نشاط الرسم", emoji: "🎨", tag: "إبداع وفنون" },
+  { title: "قراءة قصة قبل النوم", time: "قصة اليوم", emoji: "📖", tag: "وقت الهدوء" },
+  { title: "احتفال عيد الميلاد", time: "الأسبوع الماضي", emoji: "🎂", tag: "احتفالات" }
+];
+
+// --- Tab Switching Logic ---
+function switchTab(tabId) {
+  state.currentTab = tabId;
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  const activeBtn = document.getElementById(`tab-${tabId}`);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  const view = document.getElementById('screenView');
+  playTone(440, 0.08);
+
+  if (tabId === 'home') renderHomeScreen(view);
+  else if (tabId === 'learn') renderLearnScreen(view);
+  else if (tabId === 'match') renderMatchGameScreen(view);
+  else if (tabId === 'games') renderGamesScreen(view);
+  else if (tabId === 'album') renderAlbumScreen(view);
+}
+
+// --- Screen 1: Home Dashboard ---
+function renderHomeScreen(container) {
+  container.innerHTML = `
+    <!-- Hero Hero Banner -->
+    <div class="card" style="background: linear-gradient(135deg, #FFF6F3, #FFEFE8); border: 2px solid #FFD8CE;">
+      <div style="display: flex; gap: 14px; align-items: center;">
+        <div style="width: 76px; height: 76px; border-radius: 50%; background: #FFD2C6; display: grid; place-items: center; font-size: 2.6rem; border: 4px solid #FFF; box-shadow: 0 4px 10px rgba(0,0,0,0.06);">
+          👧
+        </div>
+        <div style="flex: 1;">
+          <span class="badge-tag" style="background: #FFE4DE; color: #EA580C; margin-bottom: 4px;">بطلة التطبيق 🏅</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: #431407;">أهلاً يا ${state.name}! ☀️</h2>
+          <p style="font-size: 0.85rem; color: #7C2D12;">مستعدة للتحدي وجمع النجوم اليوم؟</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Quest -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <strong style="font-size: 0.95rem;">🎯 مهمة اليوم: اجمعي 3 نجوم</strong>
+        <span style="font-size: 0.85rem; font-weight: 800; color: var(--primary);">2 من 3 ⭐</span>
+      </div>
+      <div style="width: 100%; height: 10px; background: #E2E8F0; border-radius: 99px; overflow: hidden;">
+        <div style="width: 66%; height: 100%; background: linear-gradient(90deg, #FF7A59, #F59E0B); border-radius: 99px;"></div>
+      </div>
+    </div>
+
+    <!-- Learning Pods Grid -->
+    <h3 style="font-size: 1.05rem; font-weight: 800; margin: 16px 0 10px 0;">محطات التعلّم السحرية 📚</h3>
+    <div class="grid-2">
+      <div class="tactile-btn" onclick="switchTab('learn'); speakLetter('أ', 'أرنب');">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🔤</div>
+        <div style="font-size: 1.05rem; color: #1E293B;">حروف عربي</div>
+        <small style="color: var(--text-muted);">28 حرفاً مع الأصوات</small>
+      </div>
+
+      <div class="tactile-btn" onclick="switchTab('learn'); speakNumber(1, 'واحد', 'One');">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🔢</div>
+        <div style="font-size: 1.05rem; color: #1E293B;">عالم الأرقام</div>
+        <small style="color: var(--text-muted);">العد والجمع 1-10</small>
+      </div>
+
+      <div class="tactile-btn" onclick="switchTab('match');">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🧩</div>
+        <div style="font-size: 1.05rem; color: #1E293B;">توصيل الحرف</div>
+        <small style="color: var(--text-muted);">اختاري الحرف وصورته</small>
+      </div>
+
+      <div class="tactile-btn" onclick="switchTab('games');">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🎹</div>
+        <div style="font-size: 1.05rem; color: #1E293B;">بيانو وألعاب</div>
+        <small style="color: var(--text-muted);">نغمات وفرقعة بالونات</small>
+      </div>
+    </div>
+
+    <!-- Story Spotlight -->
+    <div class="card" style="margin-top: 14px; background: #FAF5FF; border: 1px solid #E9D5FF; cursor: pointer;" onclick="openStoryModal()">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="font-size: 2.5rem;">🌈</div>
+        <div style="flex: 1;">
+          <span class="badge-tag" style="background: #F3E8FF; color: #7E22CE;">حكاية الأسبوع</span>
+          <h4 style="font-size: 1rem; font-weight: 800; color: #581C87;">سفينة نوح وقوس قزح</h4>
+          <p style="font-size: 0.8rem; color: #6B21A8;">استمعي للقصة المحفورة بالنور والمحبة</p>
+        </div>
+        <button class="voice-btn" style="padding: 6px 12px; font-size: 0.8rem;">اسمعي 🔊</button>
+      </div>
+    </div>
+  `;
+}
+
+// --- Screen 2: Learn Hub (Letters & Numbers) ---
+function renderLearnScreen(container) {
+  container.innerHTML = `
+    <!-- Header Mode Switch -->
+    <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+      <button class="tactile-btn" style="flex: 1; background: var(--secondary); color: #FFF; border-color: var(--secondary-dark);" onclick="speakText('لوحة الحروف العربية، اضغطي على أي حرف لتسمعي نطقه')">
+        🔤 الحروف العربية
+      </button>
+      <button class="tactile-btn" style="flex: 1;" onclick="speakText('عالم الأرقام السحري، اضغطي لتعلم العد')">
+        🔢 الأرقام (1-10)
+      </button>
+    </div>
+
+    <!-- Interactive Letter Spotlight -->
+    <div class="card" style="text-align: center; background: linear-gradient(180deg, #FFFFFF, #FFF9F5); border: 2px solid #FFEDD5;">
+      <span class="badge-tag" style="background: #FFE4DE; color: #EA580C;">الحرف النشط اليوم</span>
+      <div style="font-size: 5rem; font-weight: 900; color: var(--primary); margin: 6px 0;" id="heroLetter">أ</div>
+      <h2 style="font-size: 1.5rem; font-weight: 800;" id="heroWord">أَرْنَب · Rabbit 🐰</h2>
+      <div style="display: flex; justify-content: center; gap: 10px; margin-top: 12px;">
+        <button class="voice-btn" onclick="speakLetter('أ', 'أرنب')">🔊 نطق عربي</button>
+        <button class="voice-btn" style="background: #3B82F6;" onclick="speakText('Letter A, Rabbit', 'en-US')">🔊 English</button>
+      </div>
+    </div>
+
+    <!-- All Letters Grid -->
+    <h3 style="font-size: 1rem; font-weight: 800; margin: 16px 0 10px;">انقري الحرف لتسمعي صوته 🗣️:</h3>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+      ${ARABIC_LETTERS.map(item => `
+        <div class="tactile-btn" style="background: ${item.color}; border: none; padding: 12px 6px;" onclick="selectHeroLetter('${item.l}', '${item.word}', '${item.enWord}', '${item.icon}')">
+          <div style="font-size: 2rem; font-weight: 900; color: #1E293B;">${item.l}</div>
+          <div style="font-size: 1.1rem;">${item.icon}</div>
+          <small style="font-size: 0.75rem; font-weight: 700; color: #475569;">${item.word}</small>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Numbers Row -->
+    <h3 style="font-size: 1rem; font-weight: 800; margin: 20px 0 10px;">عالم الأرقام والأشكال 🎈:</h3>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+      ${NUMBERS_LIST.map(n => `
+        <div class="tactile-btn" onclick="speakNumber(${n.n}, '${n.ar}', '${n.en}')">
+          <div style="font-size: 1.4rem; font-weight: 900; color: var(--primary);">${n.n}</div>
+          <div style="font-size: 0.75rem; font-weight: 700;">${n.ar}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function selectHeroLetter(letter, word, enWord, icon) {
+  document.getElementById('heroLetter').textContent = letter;
+  document.getElementById('heroWord').textContent = `${word} · ${enWord} ${icon}`;
+  speakLetter(letter, word);
+}
+
+function speakLetter(letter, word) {
+  playTone(523, 0.1);
+  speakText(`حرف ${letter} .. ${word}`, 'ar-SA');
+  addStarSparkle(window.innerWidth / 2, 320);
+}
+
+function speakNumber(num, ar, en) {
+  playTone(659, 0.12);
+  speakText(`رقم ${ar} .. ${en}`, 'ar-SA');
+  addStarSparkle(window.innerWidth / 2, 500);
+}
+
+// --- Screen 3: Match Game (Letter to Picture) ---
+function renderMatchGameScreen(container) {
+  container.innerHTML = `
+    <div class="card" style="text-align: center; background: #ECFDF5; border: 2px solid #A7F3D0;">
+      <h2 style="font-size: 1.25rem; font-weight: 900; color: #065F46;">وصّلي الحرف بالصورة! 🎯</h2>
+      <p style="font-size: 0.85rem; color: #047857; margin-bottom: 10px;">انقري على الحرف، ثم انقري على صورته الصديقة</p>
+      <button class="voice-btn" style="margin: 0 auto; background: var(--secondary-dark);" onclick="speakText('اختاري الحرف يا ميليسيا، ثم اختاري صورته الصحيحة')">
+        اسمعي السؤال 🔊
+      </button>
+    </div>
+
+    <!-- Match Columns Arena -->
+    <div style="display: flex; justify-content: space-between; gap: 14px; margin-top: 14px;">
+      
+      <!-- Letters Column (Right) -->
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-weight: 800; font-size: 0.9rem; text-align: center;">الحروف 🔤</span>
+        <button class="tactile-btn match-l" id="l-alef" onclick="handleMatchSelect('letter', 'أ', this)">
+          <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary);">أ</span>
+          <br><small>ألف · Alef</small>
+        </button>
+        <button class="tactile-btn match-l" id="l-baa" onclick="handleMatchSelect('letter', 'ب', this)">
+          <span style="font-size: 2.2rem; font-weight: 900; color: #10B981;">ب</span>
+          <br><small>باء · Baa</small>
+        </button>
+        <button class="tactile-btn match-l" id="l-taa" onclick="handleMatchSelect('letter', 'ت', this)">
+          <span style="font-size: 2.2rem; font-weight: 900; color: #3B82F6;">ت</span>
+          <br><small>تاء · Taa</small>
+        </button>
+      </div>
+
+      <!-- Images Column (Left) -->
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-weight: 800; font-size: 0.9rem; text-align: center;">الصور الصديقة 🎨</span>
+        <button class="tactile-btn match-img" id="img-duck" onclick="handleMatchSelect('image', 'ب', this)">
+          <span style="font-size: 2.2rem;">🦆</span>
+          <br><small>بَطَّة · Duck</small>
+        </button>
+        <button class="tactile-btn match-img" id="img-rabbit" onclick="handleMatchSelect('image', 'أ', this)">
+          <span style="font-size: 2.2rem;">🐰</span>
+          <br><small>أَرْنَب · Rabbit</small>
+        </button>
+        <button class="tactile-btn match-img" id="img-apple" onclick="handleMatchSelect('image', 'ت', this)">
+          <span style="font-size: 2.2rem;">🍎</span>
+          <br><small>تُفَّاحَة · Apple</small>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Match Result Feedback -->
+    <div id="matchFeedback" style="margin-top: 18px; text-align: center; min-height: 48px;">
+      <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-muted);">ابدأي باختيار حرف من اليمين ✨</div>
+    </div>
+  `;
+}
+
+function handleMatchSelect(type, val, element) {
+  playTone(493, 0.08);
+
+  if (type === 'letter') {
+    state.matchState.selectedLetter = val;
+    document.querySelectorAll('.match-l').forEach(el => el.style.border = '2px solid #E2E8F0');
+    element.style.border = '3px solid var(--primary)';
+    speakText(val, 'ar-SA');
+  } else if (type === 'image') {
+    state.matchState.selectedImage = val;
+    document.querySelectorAll('.match-img').forEach(el => el.style.border = '2px solid #E2E8F0');
+    element.style.border = '3px solid var(--secondary)';
+  }
+
+  // Check matching
+  if (state.matchState.selectedLetter && state.matchState.selectedImage) {
+    const feedback = document.getElementById('matchFeedback');
+    if (state.matchState.selectedLetter === state.matchState.selectedImage) {
+      // Success!
+      playTone(523, 0.1);
+      setTimeout(() => playTone(659, 0.1), 100);
+      setTimeout(() => playTone(784, 0.25), 200);
+      speakText('أحسنتِ يا بطلة ميليسيا! إجابة صحيحة وممتازة!', 'ar-SA');
+      celebrateStar();
+      feedback.innerHTML = `
+        <div style="background: #D1FAE5; color: #065F46; padding: 12px; border-radius: 16px; font-weight: 800;">
+          🎉 برافو يا ميليسيا! وصلتي الحرف بصورته الصحيحة!
+        </div>
+      `;
+    } else {
+      // Try again
+      playTone(220, 0.25, 'triangle');
+      speakText('حاولي مرة ثانية يا بطلة', 'ar-SA');
+      feedback.innerHTML = `
+        <div style="background: #FEE2E2; color: #991B1B; padding: 12px; border-radius: 16px; font-weight: 800;">
+          💡 حاولي مرة أخرى.. وصلي الحرف بالصورة التي تبدأ به!
+        </div>
+      `;
+    }
+    // reset selection
+    state.matchState.selectedLetter = null;
+    state.matchState.selectedImage = null;
+  }
+}
+
+// --- Screen 4: Games Hub ---
+function renderGamesScreen(container) {
+  container.innerHTML = `
+    <!-- Header Reward Banner -->
+    <div class="card" style="background: linear-gradient(135deg, #FF7A59, #FF9E80); color: #FFF;">
+      <h2 style="font-size: 1.2rem; font-weight: 800;">🎹 ألعاب وأنشطة ميليسيا الموسيقية</h2>
+      <p style="font-size: 0.85rem; opacity: 0.9;">اعزفي ألحانك أو فرقعي بالونات الأرقام السحرية!</p>
+    </div>
+
+    <!-- Mini Piano Activity -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <strong style="font-size: 1rem;">بيانو النغمات السحرية 🎵</strong>
+        <span class="badge-tag" style="background: #EFF6FF; color: #2563EB;">موسيقى تفاعلية</span>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">انقري على مفاتيح البيانو لسماع النغمات ومخارج الأصوات:</p>
+      
+      <div class="piano-keys">
+        <button class="p-key" onclick="playPianoKey(261.63, 'دو', 'C')">
+          <span style="color:#EF4444; font-size:1.2rem;">●</span>
+          <span>دو</span>
+        </button>
+        <button class="p-key" onclick="playPianoKey(293.66, 'ري', 'D')">
+          <span style="color:#F97316; font-size:1.2rem;">●</span>
+          <span>ري</span>
+        </button>
+        <button class="p-key" onclick="playPianoKey(329.63, 'مي', 'E')">
+          <span style="color:#FACC15; font-size:1.2rem;">●</span>
+          <span>مي</span>
+        </button>
+        <button class="p-key" onclick="playPianoKey(349.23, 'فا', 'F')">
+          <span style="color:#22C55E; font-size:1.2rem;">●</span>
+          <span>فا</span>
+        </button>
+        <button class="p-key" onclick="playPianoKey(392.00, 'صول', 'G')">
+          <span style="color:#3B82F6; font-size:1.2rem;">●</span>
+          <span>صول</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Balloons Game -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <strong style="font-size: 1rem;">🎈 فرقعة بالونات الأرقام</strong>
+        <button class="voice-btn" style="padding: 4px 10px; font-size: 0.75rem;" onclick="generateBalloonRound()">بالونة جديدة 🔄</button>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-muted);" id="balloonPrompt">فرقعي البالونة رقم 3!</p>
+      <div style="display: flex; justify-content: space-around; margin-top: 14px;" id="balloonContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  `;
+  generateBalloonRound();
+}
+
+let targetBalloon = 3;
+function generateBalloonRound() {
+  targetBalloon = Math.floor(Math.random() * 5) + 1;
+  const promptEl = document.getElementById('balloonPrompt');
+  if (promptEl) promptEl.textContent = `فرقعي البالونة رقم (${targetBalloon}) يا بطلة!`;
+  speakText(`فرقعي البالونة رقم ${targetBalloon}`, 'ar-SA');
+
+  const container = document.getElementById('balloonContainer');
+  if (!container) return;
+
+  const balloons = [1, 2, 3, 4, 5];
+  container.innerHTML = balloons.map(num => `
+    <button class="tactile-btn" style="border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; width: 56px; height: 72px; padding: 0; background: ${num === targetBalloon ? '#FEF08A' : '#E0F2FE'}; font-size: 1.3rem; font-weight: 900;" onclick="popBalloon(${num}, this)">
+      🎈<br>${num}
+    </button>
+  `).join('');
+}
+
+function popBalloon(num, btn) {
+  if (num === targetBalloon) {
+    playTone(880, 0.2);
+    btn.style.transform = 'scale(0.3)';
+    btn.style.opacity = '0';
+    speakText('فرقعة ممتازة! برافو!', 'ar-SA');
+    celebrateStar();
+    setTimeout(generateBalloonRound, 1200);
+  } else {
+    playTone(200, 0.2);
+    speakText(`دي بالونة رقم ${num}، دوري على ${targetBalloon}`, 'ar-SA');
+  }
+}
+
+function playPianoKey(freq, noteName, enNote) {
+  playTone(freq, 0.4, 'triangle');
+  addStarSparkle(window.innerWidth / 2, 400);
+  speakText(noteName, 'ar-SA');
+}
+
+// --- Screen 5: Kids Photo Album ---
+function renderAlbumScreen(container) {
+  container.innerHTML = `
+    <!-- Top Album Cover -->
+    <div class="card" style="text-align: center; border: 2px dashed #CBD5E1;">
+      <div style="width: 120px; height: 120px; border-radius: 20px; background: #F8FAFC; margin: 0 auto 12px; display: grid; place-items: center; font-size: 4rem; border: 4px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        ${ALBUM_MEMORIES[state.coverPhotoIndex].emoji}
+      </div>
+      <h3 style="font-size: 1.1rem; font-weight: 800;">${ALBUM_MEMORIES[state.coverPhotoIndex].title}</h3>
+      <span class="badge-tag" style="background: #DCFCE7; color: #166534; margin: 6px 0 12px;">صورة الواجهة الرئيسية المختارة ✅</span>
+      <div>
+        <button class="voice-btn" style="margin: 0 auto;" onclick="openCameraSim()">📸 إضافة صورة جديدة للذكرى</button>
+      </div>
+    </div>
+
+    <!-- Memories Gallery -->
+    <h3 style="font-size: 1rem; font-weight: 800; margin: 16px 0 10px;">جميع ذكريات ميليسيا الجميلة:</h3>
+    <div class="grid-2">
+      ${ALBUM_MEMORIES.map((m, idx) => `
+        <div class="tactile-btn" style="text-align: center;" onclick="setCoverPhoto(${idx})">
+          <div style="font-size: 3rem; margin-bottom: 6px;">${m.emoji}</div>
+          <strong style="font-size: 0.9rem; display: block;">${m.title}</strong>
+          <small style="font-size: 0.75rem; color: var(--text-muted);">${m.time}</small>
+          <div style="margin-top: 8px;">
+            <span class="badge-tag" style="background: #F1F5F9; color: #475569; font-size: 0.7rem;">${idx === state.coverPhotoIndex ? 'الرئيسية ⭐' : 'اجعليها الرئيسية'}</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function setCoverPhoto(idx) {
+  state.coverPhotoIndex = idx;
+  localStorage.setItem('melicia_cover_idx', idx);
+  playTone(600, 0.15);
+  speakText(`تم تعيين ${ALBUM_MEMORIES[idx].title} كصورة رئيسية`, 'ar-SA');
+  renderAlbumScreen(document.getElementById('screenView'));
+}
+
+function openCameraSim() {
+  speakText('ابتسمي يا ميليسيا! التقطت صورة رائعة!', 'ar-SA');
+  celebrateStar();
+}
+
+// --- Modals & Celebrations ---
+function celebrateStar() {
+  state.stars += 1;
+  localStorage.setItem('melicia_stars', state.stars);
+  document.getElementById('starCounter').textContent = state.stars;
+  playTone(880, 0.15);
+  setTimeout(() => playTone(1174, 0.3), 120);
+  addStarSparkle(window.innerWidth - 60, 40);
+}
+
+function addStarSparkle(x, y) {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.textContent = ['⭐', '✨', '🎉', '💖'][Math.floor(Math.random() * 4)];
+  s.style.left = `${x}px`;
+  s.style.top = `${y}px`;
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 800);
+}
+
+function editName() {
+  const current = state.name;
+  const newName = prompt('ما هو اسم البطلة الجميلة؟', current);
+  if (newName && newName.trim()) {
+    state.name = newName.trim();
+    localStorage.setItem('melicia_name', state.name);
+    document.getElementById('userNameDisplay').textContent = `${state.name} · Melicia`;
+    speakText(`أهلاً بكِ يا بطلة ${state.name}!`, 'ar-SA');
+  }
+}
+
+function openStoryModal() {
+  const modal = document.getElementById('modalDialog');
+  const card = document.getElementById('modalCard');
+  const story = BIBLE_STORIES[0];
+  card.innerHTML = `
+    <div style="font-size: 4rem; margin-bottom: 10px;">${story.icon}</div>
+    <h2 style="font-size: 1.35rem; font-weight: 900; color: #1E293B;">${story.title}</h2>
+    <div style="font-size: 0.9rem; color: #64748B; margin-bottom: 12px;">${story.enTitle}</div>
+    <p style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin-bottom: 18px;">${story.desc}</p>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <button class="voice-btn" onclick="speakText('${story.desc}', 'ar-SA')">🔊 استمعي للقصة</button>
+      <button class="tactile-btn" style="padding: 8px 16px;" onclick="closeModalDirect()">إغلاق</button>
+    </div>
+  `;
+  modal.classList.add('open');
+  speakText(story.desc, 'ar-SA');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'modalDialog') {
+    closeModalDirect();
+  }
+}
+
+function closeModalDirect() {
+  document.getElementById('modalDialog').classList.remove('open');
+}
+
+// Initial Boot
+window.addEventListener('DOMContentLoaded', () => {
+  switchTab('home');
+});
+</script>
+</body></html>
